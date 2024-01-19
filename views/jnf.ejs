@@ -1,0 +1,895 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="minimum-scale=1, initial-scale=1, width=device-width"/>
+  <link rel="preload" as="image" imagesrcset=""/>
+  <title>JNF Form</title>
+  <meta name="robots" content="index,follow"/>
+  <meta name="googlebot" content="index,follow"/>
+  <meta name="description" content="Welcome to the recruitment website for MNIT Jaipur. MNIT Jaipur is India's foremost industrial leadership development institution. Our graduates are a combination of rigorous thinking, hardwork and fundamental stronghold.Let us begin..."/>
+  <meta property="og:title" content="Welcome to the recruitment website for MNIT Jaipur."/>
+  <meta property="og:description" content="Welcome to the recruitment website for MNIT Jaipur. MNIT Jaipur is India's foremost industrial leadership development institution. Our graduates are a combination of rigorous thinking, hardwork and fundamental stronghold.Let us begin..."/>
+  <meta property="og:image" content="http://localhost:2900/assets/utils/mnitbg2.jpg"/>
+  <meta property="og:image:alt" content="home-bg"/>
+  <meta property="og:image:width" content="800"/>
+  <meta property="og:image:height" content="400"/>
+  <link rel="preload" as="image" imagesrcset="http://localhost:2900/assets/utils/mnitbg2.jpg"/>
+  <meta name="next-head-count" content="38"/>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script>
+    $(document).ready(function () {
+      var counter = 1;
+      $("#addrow").on("click", function () {
+        var newRow = $("<tr>");
+        var cols = "";
+
+        cols += `<td class="col-sm-4">
+                    <input type="text" name="country" placeholder="Country" >
+                                            </td>`;
+        cols += `<td class="col-sm-4">
+                    <input type="text" name="state" placeholder="State"  >
+                                            </td>`;
+        cols += `<td class="col-sm-4">
+                    <input type="text" name="city" placeholder="City" >
+                                            </td>`;
+
+        cols += '<td><button type="button" class="ibtnDel btn btn-md btn-danger ">Delete</button></td>';
+        newRow.append(cols);
+        $("table.order-list").append(newRow);
+        counter++;
+      });
+
+
+
+      $("table.order-list").on("click", ".ibtnDel", function (event) {
+        $(this).closest("tr").remove();
+        counter -= 1
+      });
+
+
+    });
+
+
+
+    function calculateRow(row) {
+      var price = +row.find('input[name^="price"]').val();
+
+    }
+
+    function calculateGrandTotal() {
+      var grandTotal = 0;
+      $("table.order-list").find('input[name^="price"]').each(function () {
+        grandTotal += +$(this).val();
+      });
+      $("#grandtotal").text(grandTotal.toFixed(2));
+    }
+  </script>
+  <link rel="stylesheet" href="https://multi-select-bootstrap-toggle.glitch.me/index.css">
+  <script src="https://multi-select-bootstrap-toggle.glitch.me/index.js"></script>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <!-- <link rel="stylesheet" href=".//assets/css/style.css"> -->
+  <%- include("templateRecr") %>
+    <div class="form-body" style="margin-right:0px;padding:20px;">
+      <div class="container">
+        <div class="row">
+          <div class="form-holder">
+            <h2>Malaviya National Institute of Technology Jaipur</h2>
+            <p>Placement Session 2022-23</p>
+            <div class="form-content">
+              <div class="form-items">
+                <h1 style="text-align: center;">JOB NOTIFICATION FORM </h1>
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- MultiStep Form -->
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+
+      html {
+        height: 100%;
+      }
+
+
+
+      /*form styles*/
+      #msform {
+        text-align: center;
+        position: relative;
+        margin-top: 20px;
+      }
+
+      #msform fieldset .form-card {
+        background: white;
+        border: 0 none;
+        border-radius: 0px;
+        box-shadow: 0 2px 2px 2px rgba(0, 0, 0, 0.2);
+        padding: 20px 40px 30px 40px;
+        box-sizing: border-box;
+        width: 94%;
+        margin: 0 3% 20px 3%;
+
+        /*stacking fieldsets above each other*/
+        position: relative;
+      }
+
+      #msform fieldset {
+        background: white;
+        border: 0 none;
+        border-radius: 0.5rem;
+        box-sizing: border-box;
+        width: 100%;
+        margin: 0;
+        padding-bottom: 20px;
+
+        /*stacking fieldsets above each other*/
+        position: relative;
+      }
+
+      /*Hide all except first fieldset*/
+      #msform fieldset:not(:first-of-type) {
+        display: none;
+      }
+
+      #msform fieldset .form-card {
+        text-align: left;
+        color: #9E9E9E;
+      }
+
+      #msform input,
+      #msform textarea {
+        padding: 0px 8px 4px 8px;
+        border: none;
+        border-bottom: 1px solid #ccc;
+        border-radius: 0px;
+        margin-bottom: 25px;
+        margin-top: 2px;
+        width: 100%;
+        box-sizing: border-box;
+        font-family: 'Montserrat', sans-serif;
+        color: #2C3E50;
+        font-size: 16px;
+        letter-spacing: 1px;
+        box-shadow: 0 0 0px 1000px #fff inset;
+        -webkit-box-shadow: 0 0 0px 1000px #fff inset;
+      }
+
+      #msform input:focus,
+      #msform textarea:focus {
+        border: none;
+        font-weight: bold;
+        border-bottom: 2px solid skyblue;
+        outline-width: 0;
+        box-shadow: 0 0 0px 1000px #fff inset;
+        -webkit-box-shadow: 0 0 0px 1000px #fff inset;
+      }
+
+      /*Blue Buttons*/
+      #msform .action-button {
+        width: 100px;
+        background: skyblue;
+        font-weight: bold;
+        color: white;
+        border: 0 none;
+        border-radius: 0px;
+        box-shadow: none;
+        cursor: pointer;
+        padding: 10px 5px;
+        margin: 10px 5px;
+      }
+
+      #msform .action-button:hover,
+      #msform .action-button:focus {
+        box-shadow: 0 0 0 2px white, 0 0 0 3px skyblue;
+      }
+
+      /*Previous Buttons*/
+      #msform .action-button-previous {
+        width: 100px;
+        background: #616161;
+        font-weight: bold;
+        color: white;
+        border: 0 none;
+        border-radius: 0px;
+        cursor: pointer;
+        padding: 10px 5px;
+        margin: 10px 5px;
+        box-shadow: none;
+      }
+
+      #msform .action-button-previous:hover,
+      #msform .action-button-previous:focus {
+        box-shadow: 0 0 0 2px white, 0 0 0 3px #616161;
+      }
+      
+
+      /*Dropdown List Exp Date*/
+      select.list-dt {
+        border: none;
+        outline: 0;
+        border-bottom: 1px solid #ccc;
+        padding: 2px 5px 3px 5px;
+        margin: 2px;
+      }
+
+      select.list-dt:focus {
+        border-bottom: 2px solid skyblue;
+      }
+
+      /*The background card*/
+      .card {
+        z-index: 0;
+        border: none;
+        border-radius: 0.5rem;
+        position: relative;
+      }
+
+      /*FieldSet headings*/
+      .fs-title {
+        font-size: 25px;
+        color: #2C3E50;
+        margin-bottom: 10px;
+        font-weight: bold;
+        text-align: left;
+      }
+
+      /*progressbar*/
+      #progressbar {
+        margin-bottom: 30px;
+        overflow: hidden;
+        color: lightgrey;
+      }
+
+      #progressbar .active {
+        color: #000000;
+      }
+
+      #progressbar li {
+        list-style-type: none;
+        font-size: 12px;
+        width: 25%;
+        float: left;
+        position: relative;
+      }
+
+      /*Icons in the ProgressBar*/
+      #progressbar #account:before {
+        font-family: FontAwesome;
+        content: "\f023";
+      }
+
+      #progressbar #personal:before {
+        font-family: FontAwesome;
+        content: "\f007";
+      }
+
+      #progressbar #contact:before {
+        font-family: FontAwesome;
+        content: "\f09d";
+      }
+
+      #progressbar #confirm:before {
+        font-family: FontAwesome;
+        content: "\f00c";
+      }
+
+      /*ProgressBar before any progress*/
+      #progressbar li:before {
+        width: 50px;
+        height: 50px;
+        line-height: 45px;
+        display: block;
+        font-size: 18px;
+        color: #ffffff;
+        background: lightgray;
+        border-radius: 50%;
+        margin: 0 auto 10px auto;
+        padding: 2px;
+      }
+
+      /*ProgressBar connectors*/
+      #progressbar li:after {
+        content: '';
+        width: 100%;
+        height: 2px;
+        background: lightgray;
+        position: absolute;
+        left: 0;
+        top: 25px;
+        z-index: -1;
+      }
+
+      /*Color number of the step and the connector before it*/
+      #progressbar li.active:before,
+      #progressbar li.active:after {
+        background: skyblue;
+      }
+
+      /*Imaged Radio Buttons*/
+      .radio-group {
+        position: relative;
+        margin-bottom: 25px;
+      }
+
+      .radio {
+        display: inline-block;
+        width: 204;
+        height: 104;
+        border-radius: 0;
+        background: lightblue;
+        box-shadow: 0 2px 2px 2px rgba(0, 0, 0, 0.2);
+        box-sizing: border-box;
+        cursor: pointer;
+        margin: 8px 2px;
+      }
+
+      .radio:hover {
+        box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.3);
+      }
+
+      .radio.selected {
+        box-shadow: 1px 1px 2px 2px rgba(0, 0, 0, 0.1);
+      }
+
+      /*Fit image in bootstrap div*/
+      .fit-image {
+        width: 100%;
+        object-fit: cover;
+      }
+    </style>
+    <script>
+      window.addEventListener('DOMContentLoaded', () => {
+      // Placeholder you want to supply to it.
+      const placeholder = "Please click to open the dropdown. You can Ctrl+Click to select multipe branch names.";
+      // path of the JSON
+      const jsonFilePath = "/assets/json/branch-options.json";
+      DropdownMultiSelect(placeholder, jsonFilePath);
+    });
+    </script>
+
+    <div class="container" id="grad1">
+      <div class="row justify-content-center mt-0">
+        <div class="col-12 text-center p-0 mt-3 mb-2">
+          <div class="card px-0 pt-4 pb-0 mt-3 mb-3">
+
+            <div class="row">
+              <div class="col-md-12 mx-0">
+                <form id="msform" class="requires-validation" method="POST" action="/auth/postDrive">
+                  <input style="display: none;" type="text" name="driveType" value="fulltime" required>
+                  <!-- progressbar -->
+                  <ul id="progressbar">
+                    <li class="active" id="account"><strong>About</strong></li>
+                    <li id="personal"><strong>INFO</strong></li>
+                    <li id="contact"><strong>Contact</strong></li>
+                    <li id="confirm"><strong>Finish</strong></li>
+                  </ul>
+                  <!-- fieldsets -->
+                  <fieldset>
+                    <div class="form-card">
+                      <h2 class="fs-title">About Organisation</h2>
+                      <br>
+                      <div class="row">
+                        <div class="col-12 col-md-4">
+                          <input class="form-control" type="text" name="nameOrg" placeholder="Name Of Organization"
+                            required>
+
+                        </div>
+                        <div class="col-12 col-md-4">
+                          <input class="form-control" type="text" name="orgType" placeholder="Organization Type"
+                            required>
+
+                        </div>
+                        <div class="col-12 col-md-4">
+                          <input class="form-control" type="text" name="inSec" placeholder="Industry Sector" required>
+
+                        </div>
+
+                        <div class="col-md-12">
+                          <input class="form-control" type="text" name="website" placeholder="Website" required>
+
+                        </div>
+                      </div>
+                      <h2 class="fs-title">Job Profile</h2>
+                      <br>
+                      <div class="row">
+                        <div class="col-12 col-md-4">
+                          <input class="form-control" type="text" name="jobDes" placeholder="Job Designation" required>
+
+                        </div>
+
+                        <div class="col-12 col-md-4">
+                          <input class="form-control" type="text" name="package" placeholder="Package/Stripend"
+                            required>
+                        </div>
+                        <div class="col-12 col-md-4">
+                          <input id="joindate" class="form-control" type="date" name="joinDate" required
+                            placeholder="Tentative Joining Date">
+                        </div>
+                        <div class="col-md-12">
+                          <input class="form-control" type="text" name="jobDesc" placeholder="Job Description" required>
+
+                        </div>
+                      </div>
+
+
+
+                      <br>
+                      <h3 class="fs-title">Job Locations</h3>
+                      <div class="">
+                        <table id="myTable" class=" table order-list">
+                          <thead>
+                            <tr>
+                              <td align="left" class="col-sm-4">Country</td>
+                              <td align="left" class="col-sm-4">State</td>
+                              <td align="left" class="col-sm-4">City</td>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr>
+                              <td class="col-sm-4">
+                                <input type="text" name="country[]" placeholder="Country">
+                              </td>
+                              <td class="col-sm-4">
+                                <input type="text" name="state[]" placeholder="State">
+                              </td>
+                              <td class="col-sm-4">
+                                <input type="text" name="city[]" placeholder="City">
+                              </td>
+                              <td class="col-sm-2"><a class="deleteRow"></a>
+
+                              </td>
+                            </tr>
+                          </tbody>
+                          <tfoot>
+                            <tr>
+                              <td colspan="5" style="text-align: right;">
+                                <button type="button" class="btn btn-secondary" id="addrow">Add Row</button>
+                              </td>
+                            </tr>
+                            <tr>
+                            </tr>
+                          </tfoot>
+                        </table>
+                      </div>
+                    </div>
+                    <input type="button" name="next" style="background-color: #062acc; border-radius: 10px; width: fit-content;"
+                      class="next action-button" value="Next Step" />
+                  </fieldset>
+
+                  <fieldset>
+                    <div class="form-card">
+                      <h2 class="fs-title">Degree/Discipline of Student Required</h2>
+                      <br>
+                      <div class="col-md-12">
+                        <img class="details" src="./branch.png" alt="">
+                      </div>
+                      <br>
+                      <div class="row">
+                        <div class="col-12 col-md-6">
+                          <p>Please Mention The Branch Below : </p>
+                          <div class="col-md-12">
+                            <!-- <input class="form-control" type="text" name="branch" placeholder="Branch" required> -->
+                            <!-- <select id="branches" multiple class="chosen-select" name="branch">
+                              <option>ALL</option>
+                              <option>COMPUTER SCIENCE</option>
+                              <option>ELECTRONICS</option>
+                              <option>ELECTRICAL</option>
+                              <option>MECHANICAL</option>
+                              <option>CIVIL</option>
+                              <option>METALLURGY</option>
+                              <option>CHEMICAL</option>
+                              <option>ARCHITECTURE</option>
+                            </select>
+                            <label for="branches">Note : Hold ctrl or Mac button to select multiple
+                              values</label> -->
+                            <div class="multi_select_component_body" id="multi_select_component_body"></div>
+                          </div>
+                        </div>
+                        <div class="col-12 col-md-6">
+                          <p>PROBABLE NUMBER OF POSITIONS YOU ARE SEEKING TO FILL FROM MNIT JAIPUR :
+                          </p>
+                          <div class="col-md-12">
+                            <input class="form-control" type="text" name="position" placeholder="No. Of Positions"
+                              required>
+
+                          </div>
+                        </div>
+                      </div>
+
+                      <br>
+                      <!-- Candidate Requirement -->
+                      <h2 class="fs-title">Candidate Requirements</h2>
+                      <div class="row">
+                        <div class="col-12 col-md-4">
+                          <input class="form-control" type="text" name="cgreq" placeholder="CGPA or % Requirements"
+                            required>
+
+                        </div>
+
+                        <div class="col-12 col-md-4">
+                          <input class="form-control" type="text" name="medreq" placeholder="Medical Requirements"
+                            required>
+
+                        </div>
+
+
+                        <div class="col-12 col-md-4">
+                          <input class="form-control" type="text" name="otherreq" placeholder="Any Other Requirements "
+                            required>
+
+                        </div>
+                      </div>
+                      <br>
+                      <!-- Selection Procedure-->
+                      <h2 class="fs-title">Selection Procedure</h2>
+                      <div class="row">
+                        <div class="col-12 col-md-4">
+                          <label for="joindate">Preferred dates for campus visit</label>
+                          <input id="prefDate" class="form-control" type="date" name="prefDate" required>
+
+
+                        </div>
+                        <div class="col-12 col-md-4">
+                          <input class="form-control" type="text" name="noexe"
+                            placeholder="No. of executives visiting the campus" required>
+
+                        </div>
+                        <div class="col-12 col-md-4">
+                          <input class="form-control" type="text" name="rooms"
+                            placeholder="No. of rooms requires for GD/PI/Test" required>
+
+                        </div>
+                      </div>
+                      <div class="col-md-12 mt-3">
+                        <label class="mb-3 mr-1" for="placetalk">Pre-Placement talk required : </label>
+
+                        <input type="radio" class="btn-check" name="placetalk" id="yes" autocomplete="off" required>
+                        <label class="btn btn-sm btn-outline-secondary" for="yes">Yes</label>
+
+                        <input type="radio" class="btn-check" id="no" autocomplete="off" required>
+                        <label class="btn btn-sm btn-outline-secondary" for="no">No</label>
+
+                      </div>
+                      <div class="col-md-12 mt-3">
+                        <label class="mb-3 mr-1" for="tec">Technical Presentation by visiting executives:
+                        </label>
+
+                        <input type="radio" class="btn-check" name="tec" id="tec_yes" autocomplete="off" required>
+                        <label class="btn btn-sm btn-outline-secondary" for="tec_yes">Yes</label>
+
+                        <input type="radio" class="btn-check" id="tec_no" autocomplete="off" required>
+                        <label class="btn btn-sm btn-outline-secondary" for="tec_no">No</label>
+
+                      </div>
+                      <div class="col-md-12 mt-3">
+                        <label class="mb-3 mr-1" for="apt">Aptitude Test: </label>
+
+                        <input type="radio" class="btn-check" name="apt" id="apt_yes" autocomplete="off" required>
+                        <label class="btn btn-sm btn-outline-secondary" for="apt_yes">Yes</label>
+
+                        <input type="radio" class="btn-check" id="apt_no" autocomplete="off" required>
+                        <label class="btn btn-sm btn-outline-secondary" for="apt_no">No</label>
+
+                      </div>
+                      <div class="col-md-12">
+                        <input class="form-control" type="text" name="dur1" value="0" placeholder="Duration (if any)">
+
+                      </div>
+                      <div class="col-md-12 mt-3">
+                        <label class="mb-3 mr-1" for="tt">Technical Test: </label>
+
+                        <input type="radio" class="btn-check" name="tt" id="tt_yes" autocomplete="off" required>
+                        <label class="btn btn-sm btn-outline-secondary" for="tt_yes">Yes</label>
+
+                        <input type="radio" class="btn-check" id="tt_no" autocomplete="off" required>
+                        <label class="btn btn-sm btn-outline-secondary" for="tt_no">No</label>
+
+                      </div>
+                      <div class="col-md-12">
+                        <input class="form-control" type="text" name="dur2" value="0" placeholder="Duration (if any)">
+
+                      </div>
+                      <div class="col-md-12 mt-3">
+                        <label class="mb-3 mr-1" for="gd">Group Discussion: </label>
+
+                        <input type="radio" class="btn-check" name="gd" id="gd_yes" autocomplete="off" required>
+                        <label class="btn btn-sm btn-outline-secondary" for="gd_yes">Yes</label>
+
+                        <input type="radio" class="btn-check" id="gd_no" autocomplete="off" required>
+                        <label class="btn btn-sm btn-outline-secondary" for="gd_no">No</label>
+                      </div>
+                      <div class="col-md-12 mt-3">
+                        <label class="mb-3 mr-1" for="pi">Personal Interview: </label>
+
+                        <input type="radio" class="btn-check" name="pi" id="pi_yes" autocomplete="off" required>
+                        <label class="btn btn-sm btn-outline-secondary" for="pi_yes">Yes</label>
+
+                        <input type="radio" class="btn-check" id="pi_no" autocomplete="off" required>
+                        <label class="btn btn-sm btn-outline-secondary" for="pi_no">No</label>
+
+                      </div>
+                      <div class="col-md-12">
+                        <input class="form-control" type="text" name="dur3" value="0" placeholder="Duration (if any)">
+
+                      </div>
+                      <div class="col-md-12 mt-3">
+                        <label class="mb-3 mr-1" for="pfw">Provision for waitlist: </label>
+
+                        <input type="radio" class="btn-check" name="pfw" id="pfw_yes" autocomplete="off" required>
+                        <label class="btn btn-sm btn-outline-secondary" for="pfw_yes">Yes</label>
+
+                        <input type="radio" class="btn-check" id="pfw_no" autocomplete="off" required>
+                        <label class="btn btn-sm btn-outline-secondary" for="pfw_no">No</label>
+                      </div>
+                      <div class="col-md-12 mt-3">
+                        <label class="mb-3 mr-1" for="final">Final offer to be announced: </label>
+
+                        <input type="radio" class="btn-check" name="final" id="final_1" autocomplete="off" required>
+                        <label class="btn btn-sm btn-outline-secondary" for="final_1">Same Day</label>
+
+                        <input type="radio" class="btn-check" id="final_2" autocomplete="off" required>
+                        <label class="btn btn-sm btn-outline-secondary" for="final_2">Later, but no further
+                          interviews</label>
+                        <input type="radio" class="btn-check" id="final_3" autocomplete="off" required>
+                        <label class="btn btn-sm btn-outline-secondary" for="final_3">Later, after next
+                          stage of
+                          interviews</label>
+                      </div>
+
+
+                    </div>
+                    <input type="button" name="previous" style="border-radius: 10px ;width: fit-content;"
+                      class="previous action-button-previous" value="Previous" />
+                    <input type="button" name="next" style="background-color: #062acc; border-radius: 10px ; width: fit-content;"
+                      class="next action-button" value="Next Step" />
+                  </fieldset>
+
+                  <fieldset>
+                    <div class="form-card" id="lastFieldset">
+                      <h2 class="fs-title">Contact Information</h2>
+                      <div class="row">
+                        <div class="col-12 col-md-4">
+                          <input class="form-control" type="text" name="conper" placeholder="Contact Person" required>
+
+                        </div>
+
+                        <div class="col-12 col-md-4">
+                          <input class="form-control" type="email" name="email" placeholder="Email Address" required>
+
+                        </div>
+
+
+                        <div class="col-12 col-md-4">
+                          <input class="form-control" type="text" name="coadd" placeholder="Contact Address" required>
+
+                        </div>
+                        <div class="col-12 col-md-4">
+                          <input class="form-control" type="text" name="mobile" placeholder="Mobile Number" required>
+
+                        </div>
+                        <div class="col-12 col-md-4">
+                          <input class="form-control" type="text" name="phone" placeholder="Phone" required>
+
+                        </div>
+                        <div class="col-12 col-md-4">
+                          <input class="form-control" type="text" name="fax" placeholder="Fax" required>
+
+                        </div>
+                      </div>
+                    </div>
+                    <br>
+                    <input type="button" name="previous" style="border-radius: 10px; width: fit-content"
+                      class="previous action-button-previous" value="Previous" />
+                    <!-- <input type="button" name="previous" class="previous action-button-previous" value="Previous" />
+                  <input type="button" name="make_contact" class="next action-button" value="Confirm" /> -->
+                    <div class="sbbtn">
+                      <button id="btnSubmit" type="submit" style="background-color: #062acc; border-radius: 10px ;"
+                        class="action-button">Submit</button>
+                    </div>
+                  </fieldset>
+
+
+
+
+                  <!-- <fieldset>
+                  <div class="form-card">
+                    <h2 class="fs-title text-center">Success !</h2>
+                    <br><br>
+                    <div class="row justify-content-center">
+                      <div class="col-3">
+                        <img src="https://img.icons8.com/color/96/000000/ok--v2.png" class="fit-image">
+                      </div>
+                    </div>
+                    <br><br>
+                    <div class="row justify-content-center">
+                      <div class="col-7 text-center">
+                        <h5>You Have Successfully Signed Up</h5>
+                      </div>
+                    </div>
+                  </div>
+                </fieldset> -->
+                </form>
+              </div>
+            </div>
+            <script>
+              $(document).ready(function () {
+                $(window).keydown(function (event) {
+                  if (event.keyCode == 13) {
+                    event.preventDefault();
+                    return false;
+                  }
+                });
+              });
+              var form = document.getElementById("msform");
+              function validateForm() {
+                // More validation can be done here
+                return true
+              }
+
+              document.getElementById("btnSubmit").addEventListener("click", function () {
+                if (validateForm()) {
+                  var validationMessage = "";
+                  $.each($("#lastFieldset").parent().find('input[type="text"]'), function () {
+                    if ($(this).val() == '')
+                      validationMessage += "Please fill " + $(this)[0].placeholder + "\n";
+                  });
+
+                  // Validation is false
+                  if (validationMessage != '') {
+                    alert(validationMessage);
+                    return
+                  }
+                  form.submit();
+                } else {
+                  alert("Please Check The Form Data Again.");
+                }
+
+              });
+            </script>
+          </div>
+          <section>
+            <div class="row">
+              <div class="col-12 col-md-4">
+                <b>PLACEMENT & TRAINING CELL</b>
+                <br>
+                <b>MALAVIYA NATIONAL INSTITUTE OF TECHNOLOGY JAIPUR</b>
+                <br>
+                <b> MARG, JAIPUR - 302017 (RAJASTHAN, INDIA)</b>
+              </div>
+              <div class="col-12 col-md-4">
+                <b>Contact:</b>
+                <br>
+                <b>Prof. Jyotirmay Mathur</b>
+                <br>
+                Professor In-charge, Training and Placement
+                <br>
+                <b>Email :</b> placements@mnit.ac.in
+                <br>
+                <b>Alt. Email :</b> jmathur.mech@mnit.ac.in
+                <br>
+                <b>Tel. : </b>+91 141 252 9065
+              </div>
+              <div class="col-12 col-md-4">
+                For further queries, please contact Faculty Placement Coordinators:
+                <br>
+                <b>Dr. Sumit Khandelwal</b> - +91 9549 654 197
+                <br>
+                <b>Dr. Deepak Verma</b> - +91 9549 654 370
+                <br>
+                <b>Dr. Virender Saharan</b> - +91 9549 654 175
+              </div>
+            </div>
+          </section>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      $(document).ready(function () {
+
+        var current_fs, next_fs, previous_fs; //fieldsets
+        var opacity;
+
+        $(".next").click(function () {
+
+          current_fs = $(this).parent();
+          next_fs = $(this).parent().next();
+
+          var validationMessage = '';
+
+          // Check inputs are filled.
+          $.each($(this).parent().find('input[type="text"]'), function () {
+            if ($(this).val() == '')
+              validationMessage += "Please fill " + $(this)[0].placeholder + "\n";
+          });
+
+          // Validation is false
+          if (validationMessage != '')
+            alert(validationMessage);
+          else {
+            //Add Class Active
+            $("#progressbar li").eq($("fieldset").index(next_fs)).addClass("active");
+
+            //show the next fieldset
+            next_fs.show();
+            //hide the current fieldset with style
+            current_fs.css({
+              'display': 'none',
+              'position': 'relative'
+            });
+            next_fs.css({
+              'opacity': opacity
+            });
+          }
+        }),
+          // current_fs.animate({opacity: 0}, {
+          //     step: function(now) {
+          //         // for making fielset appear animation
+          //         opacity = 1 - now;
+
+
+          //     duration: 600
+          // });
+          // });
+
+          $(".previous").click(function () {
+
+            current_fs = $(this).parent();
+            previous_fs = $(this).parent().prev();
+
+            //Remove class active
+            $("#progressbar li").eq($("fieldset").index(current_fs)).removeClass("active");
+
+            //show the previous fieldset
+            previous_fs.show();
+
+            //hide the current fieldset with style
+            // current_fs.animate({opacity: 0}, {
+            //     step: function(now) {
+            //         // for making fielset appear animation
+            //         opacity = 1 - now;
+
+
+            //     duration: 600
+            // });
+            current_fs.css({
+              'display': 'none',
+              'position': 'relative'
+            });
+            previous_fs.css({
+              'opacity': opacity
+            });
+          }),
+          // });
+
+          $('.radio-group .radio').click(function () {
+            $(this).parent().find('.radio').removeClass('selected');
+            $(this).addClass('selected');
+          });
+
+        $(".submit").click(function () {
+          return false;
+        })
+
+      });
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+      crossorigin="anonymous"></script>
+
+    <%- include("footer_log") %>
+      </body>
+
+</html>

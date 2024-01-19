@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <%- include("templateCoord") %>
+        <div class="maincontainer">
+            <% if(!(data.role==4)){%>
+                <div class="modal fade" id="requestModal" tabindex="-1" aria-labelledby="adminModalLabel"
+                    aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="adminModalLabel">Action</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                    aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <form id="frwdbtn" method="POST">
+                                    <div class="input-group mb-3">
+                                        <select id="inputState" name="frwdto" class="form-select" required>
+                                            <% if(data.role==2||data.role==3) {%>
+                                                <option id="revertApp">Revert Application</option>
+                                                <%}%>
+                                                    <option disabled>Forward to ...</option>
+                                                    <% for(var i=0;i<frwd.length;i++){%>
+                                                        <option value=<%=frwd[i].id %> ><%=frwd[i].name %>
+                                                        </option>
+                                                        <% } %>
+                                                            <option id="revert"></option>
+
+                                        </select>
+                                    </div>
+                                    <div class="input-group mb-3">
+                                        <textarea class="form-control" style="width: 90%;" name="note" placeholder="Add Note .." cols="30"
+                                            rows="2"></textarea>
+                                    </div>
+
+                                    <!-- <div id="revertApp" class="btn">
+                                    <i class="fa fa-undo" aria-hidden="true"></i> Revert
+                                </div> -->
+                                    <button type="submit" class="btn btn-success">
+                                        <i class="fa-solid fa-share"></i> Forward
+                                    </button>
+                                    <button class="btn btn-primary" id="deny_req"><i class="fa-solid fa-trash"></i> Delete</button>
+                                    <button class="btn btn-secondary" id="confirm_req"><i class="fa-solid fa-check"></i> Confirm</button>
+
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <%- include("partials/title",{title:"RECRUITER-REQUESTS"}) %>
+                    <div class="table-container">
+                        <div class="container">
+                            <table>
+                                <thead>
+                                    <th>Company Name</th>
+                                    <th>Email</th>
+                                    <th>Contact</th>
+                                    <th>Org Type</th>
+                                    <th>Status</th>
+                                    <th>Action</th>
+                                    <th>Note</th>
+                                    <!-- <th>Sender</th> -->
+                                </thead>
+                                <% if(requests.length==0){%>
+                                    <tbody>
+                                    </tbody>
+                            </table>
+                        </div>
+                        <div class="nopending"></div>
+                        <h5 style="text-align: center;">No pending requests</h5>
+                        <% }else{%>
+                            <tbody>
+
+                                <% for(var i=0; i<requests.length; i++) {let a=requests[i].history.findIndex(el=>
+                                    {return (el["forwarded"]==data._id && el["lastupdate"]) });
+                                    let ab=requests[i].history[a];
+                                    requests[i].tempstatus=ab.status;
+                                    requests[i].sender=ab.sender;
+                                    requests[i].note=ab.note%>
+                                    <tr>
+                                        <td>
+                                            <%= requests[i].company_name %>
+                                        </td>
+                                        <td>
+                                            <%= requests[i].email %>
+                                        </td>
+                                        <td>
+                                            <%= requests[i].mobile %>
+                                        </td>
+                                        <td>
+                                            <%= requests[i].orgType %>
+                                        </td>
+                                        <td>
+                                            <%=requests[i].tempstatus%>
+                                        </td>
+                                        <%if(requests[i].tempstatus==="pending"){%>
+                                            <td class="recruit_req_class" data-bs-toggle="modal"
+                                                id="<%= requests[i]._id %>" data-bs-target="#requestModal"
+                                                sender="<%=requests[i].sender%>"><i
+                                                    class="fa-solid fa-pen-to-square"></i></i>
+                                            </td>
+                                            <%}else{%>
+                                                <td></td>
+                                                <%}%>
+                                                    <td style="max-width:200px; overflow:scroll;">
+                                                        <%=requests[i].note%>
+                                                    </td>
+                                    </tr>
+                                    <% } %>
+                            </tbody>
+                            </table>
+                            <%}%>
+                    </div>
+                    <hr>
+                    <% } %>
+                        <% if(data.role==2||data.role==3) {%>
+                            <%- include("partials/title",{title:"COMPANIES ASSIGNED "}) %>
+                            <div class=" table-container">
+                                <div class="container">
+                                    <table>
+                                        <thead>
+
+                                            <th>Company Name</th>
+                                            <th>Recruitment Requirements</th>
+                                            <th>Students Applied</th>
+                                            <th>Status</th>
+                                            <th>Manage</th>
+
+                                        </thead>
+                                        <% if(d2h.length==0){%>
+                                            <tbody>
+                                            </tbody>
+                                    </table>
+                                </div>
+                                <div class="nopending"></div>
+                                <h5 style="text-align: center;">Nothing In Progress</h5>
+
+                                <% }else{%>
+                                    <tbody>
+                                        <%for(var i=0;i<d2h.length;i++){%>
+                                            <tr>
+                                                <td>
+                                                    <div class="logo"><img class="cmpLogo" src="<%= d2h[i].logo %>"
+                                                            alt="Logo"></img>
+                                                    </div>
+                                                    <div>
+                                                        <%=d2h[i].companyName%>
+                                                    </div>
+                                                </td>
+                                                <td class="tableData">
+                                                    <div>Company Requirements</div>
+                                                    <div><button
+                                                            onclick="location.href='/auth/drive_info_coord?d_id=<%= d2h[i]._id%>'"
+                                                            class="btn btn-secondary" style="background-color: #062acc; margin-top: 10px;">View Details</button></div>
+                                                </td>
+                                                <td class="tableData">
+                                                    <div>No. Of Students Applied: <%=d2h[i].applied.length%>
+                                                    </div>
+                                                    <div><button class="btn btn-secondary" style="background-color: #062acc; margin-top: 10px;"
+                                                            onclick="location.href='/auth/getlist_applied?id=<%=d2h[i]._id%>'">View
+                                                            details</button></div>
+                                                </td>
+                                                <td class="tableData">
+                                                    <%const status=d2h[i].process.currentStatus;%>
+                                                        <%=d2h[i].process.statusMsg.coordinator[status]%>
+                                                            <%if(status=="s3"){%>
+                                                                <a href="#" style="color: blue;">view Result</a>
+                                                                <%}else if(status=="s2" ){%>
+                                                                    <br>
+                                                                    <a href="/excel/getList?id=<%=d2h[i]._id%>"
+                                                                        style="color: blue;">Get
+                                                                        List</a>
+                                                                    <%}%>
+
+                                                </td>
+                                                <td class="tableData">
+                                                    <div><button class="btn btn-secondary" style="background-color: #062acc;"
+                                                            onclick="location.href='/auth/manage_drive?d_id=<%=d2h[i]._id%>'">Manage</button>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <%}%>
+                                    </tbody>
+                                    </table>
+                                    <%}%>
+        </div>
+
+        <% } else if (data.role===1){%>
+
+            <div class="companiesRec">
+                <%- include("partials/title",{title:"DRIVES FOR APPROVAL"}) %>
+                    <%if(postpendings.length==0){%>
+                        <div class="nopending"></div>
+                        <h5 style="text-align: center;">No drives Pending</h5>
+                        <%}else{for(var i=0; i<postpendings.length; i++) {%>
+                            <div class="drive">
+                                <div class="company_logo" style="background-image:  url('<%=postpendings[i].logo %>')">
+                                </div>
+                                <div class="company_info">
+                                    <div class="name_date">
+                                        <span class="cmpName">
+                                            <%=postpendings[i].companyName%>
+                                        </span><span>Posted :
+                                            <%= give_time(postpendings[i].postedDate) %>
+                                        </span>
+                                    </div>
+
+                                    <div style="display: flex;">
+                                        <button class="btn" style="background-color:  #062acc; color: white; width: fit-content; margin-top: 10px;"
+                                        onClick="location.href='/auth/posted_drive_details?c_id=<%=postpendings[i]._id%>'">VIEW
+                                        DETAILS</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <% }} %>
+            </div>
+            <% } else if(data.role==4){%>
+                <div
+                    style="height:400px;display: flex;justify-content: space-around;flex-direction: column;text-align: center;">
+                    <h1>No data at the movement</h1>
+                </div>
+                <%}%>
+                    </div>
+
+                    </div>
+                    </div>
+                    <script>const reqs = document.querySelectorAll(".recruit_req_class");
+                        reqs.forEach(entry => {
+                            entry.addEventListener('click', () => {
+                                document.getElementById("frwdbtn").setAttribute('action', `/auth/frwd_request?d_id=${entry.id}`);
+                                document.getElementById("confirm_req").setAttribute('onclick', `location.href='/auth/approve_recruiter?id=${entry.id}'`);
+                                document.getElementById("deny_req").setAttribute('onclick', `location.href='/auth/deny_recruiter?id=${entry.id}'`);
+                                document.getElementById("revertApp").setAttribute('value', `${entry.getAttribute("sender")}`);
+                            })
+                        });
+                    </script>
+                    <%- include('./footer_log') %>
+                        </body>
+
+</html>

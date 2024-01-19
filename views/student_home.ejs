@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <title>Home</title>
+    <%- include("./templateStud") %>
+        <% containsIn=function(id,arr){ for(var i=0;i<arr.length;i++){ if(arr[i].candidateId==id){ return true; } }
+            return false; }; formatDate=function(date){ return [ date.getUTCDate(), date.getUTCMonth() + 1,
+            date.getUTCFullYear()
+            ].join('-')+`/${('0'+date.getHours()).slice(-2)}:${('0'+date.getMinutes()).slice(-2)}:${('0'+date.getSeconds()).slice(-2)}`;
+            } %>
+
+            <div class="maincontainer">
+                <%- include("partials/title",{title:"Drive Details"}) %>
+                    <div class="drivedetails">
+                        <div class="pending_drive_list">
+                            <div class="container">
+                                <% for(var i=0;i<drives.length;i++) {%>
+                                    <div class="drive">
+                                        <div class="company_logo"
+                                            style="background-image:  url('<%=drives[i].logo %>')">
+                                        </div>
+                                        <div class="company_info">
+                                            <div class="name_date">
+                                                <h5>
+                                                    <%= drives[i].companyName%>
+                                                </h5><span>Deadline : <%=formatDate(drives[i].deadline) %></span>
+                                            </div>
+                                            <div class="require_apply">
+                                                <div class="require">
+                                                </div>
+                                                <button class="btn btn-success" style="background-color:  #062acc;"
+                                                    onclick="location.href='/auth/drive_info_stud?d_id=<%= drives[i]._id%>'">
+                                                    <% if(containsIn(data._id,drives[i].applied)) {%>
+                                                        Applied
+                                                        <% }else{ %>
+                                                            View & Apply
+                                                            <%} %>
+
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <% } %>
+                            </div>
+                        </div>
+                    </div>
+                    <hr>
+                    <%- include("partials/title",{title:"RESULTS"}) %>
+                        <div class="results">
+                        </div>
+            </div>
+            <%- include('./footer_log') %>

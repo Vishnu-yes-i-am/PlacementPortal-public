@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%- include("templateCoord") %>
+        <style>
+            .modal-confirm {
+                color: #636363;
+                width: 400px;
+            }
+
+            .modal-confirm .modal-content {
+                padding: 20px;
+                border-radius: 5px;
+                border: none;
+                text-align: center;
+                font-size: 14px;
+            }
+
+            .modal-confirm .modal-header {
+                border-bottom: none;
+                position: relative;
+            }
+
+            .modal-confirm h4 {
+                text-align: center;
+                font-size: 26px;
+                margin: 30px 0 -10px;
+            }
+
+            .modal-confirm .close {
+                position: absolute;
+                top: -5px;
+                right: -2px;
+            }
+
+            .modal-confirm .modal-body {
+                color: #999;
+            }
+
+            .modal-confirm .modal-footer {
+                border: none;
+                text-align: center;
+                border-radius: 5px;
+                font-size: 13px;
+                padding: 10px 15px 25px;
+            }
+
+            .modal-confirm .modal-footer a {
+                color: #999;
+            }
+
+            .modal-confirm .icon-box {
+                width: 80px;
+                height: 80px;
+                margin: 0 auto;
+                border-radius: 50%;
+                z-index: 9;
+                text-align: center;
+                border: 3px solid #f15e5e;
+            }
+
+            .modal-confirm .icon-box i {
+                color: #f15e5e;
+                font-size: 46px;
+                display: inline-block;
+                margin-top: 13px;
+            }
+
+            .modal-confirm .btn,
+            .modal-confirm .btn:active {
+                color: #fff;
+                border-radius: 4px;
+                background: #60c7c1;
+                text-decoration: none;
+                transition: all 0.4s;
+                line-height: normal;
+                min-width: 120px;
+                border: none;
+                min-height: 40px;
+                border-radius: 3px;
+                margin: 0 5px;
+            }
+
+            .modal-confirm .btn-secondary {
+                background: #c1c1c1;
+            }
+
+            .modal-confirm .btn-secondary:hover,
+            .modal-confirm .btn-secondary:focus {
+                background: #a8a8a8;
+            }
+
+            .modal-confirm .btn-danger {
+                background: #f15e5e;
+            }
+
+            .modal-confirm .btn-danger:hover,
+            .modal-confirm .btn-danger:focus {
+                background: #ee3535;
+            }
+
+            .trigger-btn {
+                display: inline-block;
+                margin: 100px auto;
+            }
+        </style>
+        <div class="maincontainer">
+            <%- include("partials/title",{title:"RED FLAGS MANAGEMENT"}) %>
+                <div class="createnotice">
+                    <form id="addform" action="addFlag" method="POST">
+
+                        <!-- Confirmation modal -->
+                        <div id="myModal" class="modal fade">
+                            <div class="modal-dialog modal-confirm">
+                                <div class="modal-content">
+                                    <div class="modal-header flex-column">
+                                        <div style="font-size: 35px;">
+                                            <i class="material-icons">&#9888;</i>
+                                        </div>
+                                        <h4 class="modal-title w-100">Are you sure?</h4>
+                                        <button type="button"
+                                            style="padding:1px;width:30px;height:30px;border-radius:5px;" class="close"
+                                            data-dismiss="modal" aria-hidden="true">X</button>
+                                    </div>
+                                    <div id="mbody" class="modal-body">
+
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- form -->
+                        <h3 class="text">Add Flag</h3>
+                        <div class="form-group row">
+                            <label for="inputEmail3" class="col-sm-2 col-form-label">Student ID</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" name="sid" id="ssid" placeholder="Student ID"
+                                    required>
+                            </div>
+                        </div>
+                        <fieldset class="form-group">
+                            <div class="row">
+                                <legend class="col-form-label col-sm-2 pt-0">No of flags</legend>
+                                <div class="col-sm-10">
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="radio" name="fcount" id="flag_1" value="1"
+                                            checked>
+                                        <label class="form-check-label" for="inlineRadio1">1</label>
+                                    </div>
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="radio" name="fcount" id="flag_2"
+                                            value="2">
+                                        <label class="form-check-label" for="inlineRadio2">2</label>
+                                    </div>
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="radio" name="fcount" id="flag_3"
+                                            value="3">
+                                        <label class="form-check-label" for="inlineRadio3">3</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </fieldset>
+                        <div class="form-group row">
+                            <div class="col-sm-2">Reason</div>
+                            <div class="col-sm-10">
+                                <textarea class="form-control" name="reason" id="reason"
+                                    placeholder="Reason for the red flag ..." required></textarea>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <div class="col-sm-10">
+                            </div>
+                        </div>
+                        <button href="#myModal" id="addButton" style="margin:10px" class="trigger-btn btn btn-primary"
+                            data-toggle="modal">Add</button>
+                    </form>
+                </div>
+        </div>
+        <script>
+            // const showmodal = (modal) => {
+            //     const parent = document.getElementsByTagName('body')[0];
+            //     parent.classList.toggle('modal-open');
+            //     const el = document.createElement('div');
+            //     modal.style.display = 'block';
+            //     modal.classList.add('show');
+            //     modal.removeAttribute('aria-hidden')
+            //     el.classList = "modal-backdrop fade show";
+            //     parent.appendChild(el)
+            // }
+            document.getElementById('addButton').addEventListener('click', (e) => {
+                // e.stopPropagation()
+                const sid = document.getElementById('ssid').value;
+                const reason = document.getElementById('reason').value;
+                if (!sid || !reason) {
+                    e.stopPropagation()
+                    return
+                }
+                e.preventDefault()
+                fetch(`/flag/getFStudDetail?sid=${sid}`, { method: 'GET' })
+                    .then(res => res.json())
+                    .then(data => {
+                        console.log(data);
+                        document.getElementById("mbody").innerHTML =
+                            `<p>You want to add redflag to the student with details given below</p><h5 class='text'><span>Name : </span><span>${data.first_name + " " + data.last_name}</span></h5><h5 class='text' ><span>ID : </span><span >${sid}</span></h5 ><div class="modal-footer justify-content-center">
+                                        <button type="button" class="btn btn-secondary"
+                                            data-dismiss="modal">Cancel</button>
+                                        <input class="btn btn-primary btn-lg" type="submit" value="Confirm" required />
+                                    </div>`;
+                    })
+            })
+        </script>
+        <%- include('./footer_log') %>

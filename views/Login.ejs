@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <meta name="viewport" content="minimum-scale=1, initial-scale=1, width=device-width"/>
+    <link rel="preload" as="image" imagesrcset=""/>
+    <title>Login Page</title>
+    <meta name="robots" content="index,follow"/>
+    <meta name="googlebot" content="index,follow"/>
+    <meta name="description" content="Welcome to the recruitment website for MNIT Jaipur. MNIT Jaipur is India's foremost industrial leadership development institution. Our graduates are a combination of rigorous thinking, hardwork and fundamental stronghold.Let us begin..."/>
+    <meta property="og:title" content="Welcome to the recruitment website for MNIT Jaipur."/>
+    <meta property="og:description" content="Welcome to the recruitment website for MNIT Jaipur. MNIT Jaipur is India's foremost industrial leadership development institution. Our graduates are a combination of rigorous thinking, hardwork and fundamental stronghold.Let us begin..."/>
+    <meta property="og:image" content="http://localhost:2900/assets/utils/mnitbg2.jpg"/>
+    <meta property="og:image:alt" content="home-bg"/>
+    <meta property="og:image:width" content="800"/>
+    <meta property="og:image:height" content="400"/>
+    <link rel="preload" as="image" imagesrcset="http://localhost:2900/assets/utils/mnitbg2.jpg"/>
+    <meta name="next-head-count" content="38"/>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Belleza&family=Lato:wght@300&family=Montserrat:wght@600&family=Oswald:wght@200&display=swap"
+        rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
+        crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <link rel="stylesheet" href="/assets/css/final.css">
+
+</head>
+
+<body>
+    <div class="flex-container loginPage">
+        <div class="flex-item-left" id="leftPane">
+            <img src="/assets/utils/Mnit_logo.png" width="300px" id="logo" alt="Mnit_logo">
+            <h2>Placement And Training Cell</h2>
+            <h3>MNIT Jaipur</h3>
+        </div>
+
+        <div class="flex-item-right">
+            <% if(show){ %>
+                <div class="alert alert-<%=type%>" role="alert">
+                    <%= msg %>
+                </div>
+                <%}%>
+                    <div id="rightDisplay">
+                        <div>
+                            <h1>Sign In</h1>
+                            <div style="display: flex; align-items: center;justify-content:center">
+                                <div id="studentBtn">Student &nbsp;&nbsp;</div>
+                                <div id="corrdinatorBtn">Coordinator&nbsp;&nbsp;</div>
+                                <div id="recruiterBtn">Recruiter </div>
+                            </div>
+
+                            <div id="student-form">
+                                <form class="form-signin" method="POST" action="/login/loginHandler_student">
+                                    <br>
+                                    <label for="inputEmail" class="sr-only">Student ID</label>
+                                    <br>
+                                    <div class="inputIcon">
+                                        <span>
+                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                                                <!--! Font Awesome Pro 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. -->
+                                                <path
+                                                    d="M0 128C0 92.65 28.65 64 64 64H448C483.3 64 512 92.65 512 128V384C512 419.3 483.3 448 448 448H64C28.65 448 0 419.3 0 384V128zM48 128V150.1L220.5 291.7C241.1 308.7 270.9 308.7 291.5 291.7L464 150.1V127.1C464 119.2 456.8 111.1 448 111.1H64C55.16 111.1 48 119.2 48 127.1L48 128zM48 212.2V384C48 392.8 55.16 400 64 400H448C456.8 400 464 392.8 464 384V212.2L322 328.8C283.6 360.3 228.4 360.3 189.1 328.8L48 212.2z" />
+                                            </svg>
+                                        </span>
+                                        <input type="text" name="student_id" class="inputEmail form-control"
+                                            placeholder="Student ID" required autofocus>
+                                    </div>
+                                    <br>
+                                    <label for="inputPassword" class="sr-only">Password</label>
+                                    <br>
+                                    <div class="inputIcon">
+                                        <span>
+                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+                                                <!--! Font Awesome Pro 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. -->
+                                                <path
+                                                    d="M144 144c0-44.2 35.8-80 80-80c31.9 0 59.4 18.6 72.3 45.7c7.6 16 26.7 22.8 42.6 15.2s22.8-26.7 15.2-42.6C331 33.7 281.5 0 224 0C144.5 0 80 64.5 80 144v48H64c-35.3 0-64 28.7-64 64V448c0 35.3 28.7 64 64 64H384c35.3 0 64-28.7 64-64V256c0-35.3-28.7-64-64-64H144V144z" />
+                                            </svg>
+                                        </span>
+                                        <input type="password" name="password" id="inputPassword" class="form-control"
+                                            placeholder="Password" required>
+                                    </div>
+                                    <br>
+                                    <button class="btn" type="submit">Sign in</button>
+                                    <br>
+                                    <a href="/auth/forgotPassword?role=student" class="forgotPassword">Forgot
+                                        Password
+                                        ?</a>
+                                    <a style="font-size:large;color:green" href="/login/registration"
+                                        class="forgotPassword">New Registration</a>
+                                </form>
+                            </div>
+
+                            <div id="coordinator-form">
+                                <form class="form-signin" method="POST" action="/login/loginHandler_coordinator">
+                                    <br>
+                                    <label for="inputEmail" class="sr-only">Coordinator Email address</label>
+                                    <br>
+                                    <div class="inputIcon">
+                                        <span>
+                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                                                <!--! Font Awesome Pro 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. -->
+                                                <path
+                                                    d="M0 128C0 92.65 28.65 64 64 64H448C483.3 64 512 92.65 512 128V384C512 419.3 483.3 448 448 448H64C28.65 448 0 419.3 0 384V128zM48 128V150.1L220.5 291.7C241.1 308.7 270.9 308.7 291.5 291.7L464 150.1V127.1C464 119.2 456.8 111.1 448 111.1H64C55.16 111.1 48 119.2 48 127.1L48 128zM48 212.2V384C48 392.8 55.16 400 64 400H448C456.8 400 464 392.8 464 384V212.2L322 328.8C283.6 360.3 228.4 360.3 189.1 328.8L48 212.2z" />
+                                            </svg>
+                                        </span>
+                                        <input type="email" name="email" class=" inputEmail  form-control"
+                                            placeholder="Email address" required autofocus>
+                                    </div>
+                                    <br>
+                                    <label for="inputPassword" class="sr-only">Password</label>
+                                    <br>
+                                    <div class="inputIcon">
+                                        <span>
+                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                                                <!--! Font Awesome Pro 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. -->
+                                                <path
+                                                    d="M0 128C0 92.65 28.65 64 64 64H448C483.3 64 512 92.65 512 128V384C512 419.3 483.3 448 448 448H64C28.65 448 0 419.3 0 384V128zM48 128V150.1L220.5 291.7C241.1 308.7 270.9 308.7 291.5 291.7L464 150.1V127.1C464 119.2 456.8 111.1 448 111.1H64C55.16 111.1 48 119.2 48 127.1L48 128zM48 212.2V384C48 392.8 55.16 400 64 400H448C456.8 400 464 392.8 464 384V212.2L322 328.8C283.6 360.3 228.4 360.3 189.1 328.8L48 212.2z" />
+                                            </svg>
+                                        </span>
+                                        <input type="password" name="password" class="form-control"
+                                            placeholder="Password" required>
+                                    </div>
+                                    <br>
+                                    <button class="btn" type="submit">Sign in</button>
+                                    <br>
+                                    <a href="/auth/forgotPassword?role=coordinator" id="forgotButton"
+                                        class="forgotPassword fontsize">Forgot Password ?</a>
+                                </form>
+                            </div>
+                            <div id="recruiter-form">
+                                <form class="form-signin" method="POST" action="/login/loginHandler_recruiter">
+                                    <br>
+                                    <label for="inputEmail" class="sr-only">Recruiter Email address</label>
+                                    <br>
+                                    <div class="inputIcon">
+                                        <span>
+                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                                                <!--! Font Awesome Pro 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. -->
+                                                <path
+                                                    d="M0 128C0 92.65 28.65 64 64 64H448C483.3 64 512 92.65 512 128V384C512 419.3 483.3 448 448 448H64C28.65 448 0 419.3 0 384V128zM48 128V150.1L220.5 291.7C241.1 308.7 270.9 308.7 291.5 291.7L464 150.1V127.1C464 119.2 456.8 111.1 448 111.1H64C55.16 111.1 48 119.2 48 127.1L48 128zM48 212.2V384C48 392.8 55.16 400 64 400H448C456.8 400 464 392.8 464 384V212.2L322 328.8C283.6 360.3 228.4 360.3 189.1 328.8L48 212.2z" />
+                                            </svg>
+                                        </span>
+                                        <input type="email" name="email" class="inputEmail  form-control"
+                                            placeholder="Email address" required autofocus>
+                                    </div>
+                                    <br>
+                                    <label for="inputPassword" class="sr-only">Password</label>
+                                    <br>
+                                    <div class="inputIcon">
+                                        <span>
+                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                                                <!--! Font Awesome Pro 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. -->
+                                                <path
+                                                    d="M0 128C0 92.65 28.65 64 64 64H448C483.3 64 512 92.65 512 128V384C512 419.3 483.3 448 448 448H64C28.65 448 0 419.3 0 384V128zM48 128V150.1L220.5 291.7C241.1 308.7 270.9 308.7 291.5 291.7L464 150.1V127.1C464 119.2 456.8 111.1 448 111.1H64C55.16 111.1 48 119.2 48 127.1L48 128zM48 212.2V384C48 392.8 55.16 400 64 400H448C456.8 400 464 392.8 464 384V212.2L322 328.8C283.6 360.3 228.4 360.3 189.1 328.8L48 212.2z" />
+                                            </svg>
+                                        </span>
+                                        <input type="password" name="password" class="form-control"
+                                            placeholder="Password" required>
+                                    </div>
+                                    <br>
+                                    <button class="btn" type="submit">Sign in</button>
+                                    <a href="/auth/forgotPassword?role=recruiter" class="forgotPassword">Forgot
+                                        Password
+                                        ?</a>
+                                    <div style="font-size:large;color:green" class="forgotPassword"
+                                        onclick="location.href='/auth/new_recruiter'">New
+                                        Registration</div>
+                                </form>
+
+                            </div>
+                        </div>
+                    </div>
+        </div>
+
+    </div>
+    <% if(name==1){ %>
+        <script> setTimeout(() => { document.getElementById("studentBtn").click(); }, 50);</script>
+        <% } if(name==2){ %>
+            <script>setTimeout(() => { document.getElementById("corrdinatorBtn").click(); }, 50)</script>
+            <% } if(name==3){ %>
+                <script>setTimeout(() => { document.getElementById("recruiterBtn").click(); }, 50);
+
+                </script>
+                <% } %>
+                    <script src="/assets/js/main.js"></script>
+</body>
+
+</html>

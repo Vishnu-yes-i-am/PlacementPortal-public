@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <title>Profile</title>
+    <style>
+        .card {
+            width: 100%;
+            margin-top: 2em;
+            padding: 1.5em 0.5em 0.5em;
+            border-radius: 2em;
+            text-align: center;
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .card-text {
+            text-align: left;
+        }
+
+        .card .card-img-top {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            margin: 0 auto;
+            background-size: 200px 200px;
+            overflow: hidden;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .card .card-title {
+            font-weight: 700;
+            font-size: 1.5em;
+        }
+
+        .card .btn {
+            border-radius: 2em;
+            background-color: #062acc;
+            color: #ffffff;
+            padding: 0.5em 1.5em;
+        }
+
+        .card .btn:hover {
+            background-color: #062acc;
+            color: #ffffff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        }
+
+        #myKey {
+            background-color: #07295bad;
+            width: 100px;
+            overflow-x: scroll;
+            white-space: nowrap;
+        }
+
+        #myValue {
+            border: transparent;
+        }
+    </style>
+    <%- include("templateRecr") %>
+        <div class="container">
+            <%- include("partials/title",{title:"PROFILE"}) %>
+                <div class="profilemenu">
+                    <div class="card shadow-lg mb-4 animate__animated animate__slideInLeft"
+                        style="border-bottom: 10px solid #fbc02a;">
+                        <div class="row">
+                            <div class="col-12 col-md-4">
+                                <div style="background-image:url(<%=data.logo%>)" class="card-img-top"></div>
+                                <div class="card-body" style="padding:0;padding-top:10px;">
+                                    <h5 class="card-title">
+                                        <%= data.company_name %>
+                                    </h5>
+                                    <hr>
+                                </div>
+                                <div class="card-header alert alert-primary p-0 p-2" style="font-size: 20px;">Details
+                                </div>
+                            </div>
+                            <div class="col-12 col-md-8">
+
+                                <div class="card-body " style="border-bottom: 1px solid #fbc02a;">
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <h5 class="card-title" style="font-size: 18px;">Org-Type</h5>
+                                    </div>
+                                    <p class="card-text ">
+                                        <%= data.orgType %>
+                                    </p>
+                                </div>
+                                <div class="card-body " style="border-bottom: 1px solid #fbc02a;">
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <h5 class="card-title" style="font-size: 18px;">Mobile</h5>
+                                    </div>
+                                    <p class="card-text ">
+                                        <%= data.mobile %>
+                                    </p>
+                                </div>
+                                <div class="card-body " style="border-bottom: 1px solid #fbc02a;">
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <h5 class="card-title" style="font-size: 18px;">Email</h5>
+                                    </div>
+                                    <p class="card-text ">
+                                        <%= data.email %>
+                                    </p>
+                                </div>
+                                <div class="card-body " style="border-bottom: 1px solid #fbc02a;">
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <h5 class="card-title" style="font-size: 18px;">Address</h5>
+                                    </div>
+                                    <p class="card-text ">
+                                        <%= data.address %>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+        </div>
+        </div>
+        <%- include('./footer_log') %>
+            </body>
+
+</html>

@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <title>Inbox</title>
+    <style>
+        .headtext {
+            text-align: center;
+            font-size: xx-large;
+            margin-top: 60px;
+            color: #4805ca;
+            font-weight: 700;
+            width: max-content;
+            margin: auto;
+
+        }
+
+        .inbox {
+            width: 90%;
+            margin: auto;
+            padding: 20px;
+            height: 80vh;
+            overflow-y: scroll;
+            margin-bottom: 50px;
+            background-color: #d8e4f0;
+            ;
+            margin-top: 50px;
+            border-radius: 5px;
+        }
+
+        .message {
+            box-shadow: 2px 3px 1px;
+            width: 100%;
+            margin-top: 10px;
+            min-width: fit-content;
+            border-radius: 10px;
+            border-radius: 6px;
+            padding: 1.5%;
+            margin: 20px auto;
+            border: solid black 0.5px;
+            margin-bottom: 10px;
+
+        }
+
+        .msgdate {
+            color: #0b1ba5;
+            font-size: medium;
+        }
+
+        .msgtitle {
+            font-size: large;
+            font-weight: 700;
+        }
+
+        .msgsender {
+            width: fit-content;
+        }
+
+        #readStatus {
+            cursor: pointer;
+            color: red;
+            width: fit-content;
+        }
+
+        .readfalse {
+            background-color: #e6e4e4;
+            font-weight: 700;
+        }
+
+        .readtrue {
+            background-color: #e6e4e4;
+        }
+    </style>
+    <% if(data.student_id){%>
+        <%- include("templateStud") %>
+            <% }else{%>
+                <%- include("templateCoord") %>
+                    <% } %>
+
+                        <%- include("partials/title",{title:"LATEST UPDATES"}) %>
+                            <% var data=data.inbox %>
+                                <% if(data.length==0){%>
+                                    <div style="width: 100%;display: flex;">
+                                        <img src="/assets/utils/Inbox.png" width="300px" style="margin:auto;" alt="">
+                                    </div>
+                                    <% }else{ %>
+                                        <div class="inbox"
+                                            style="border-left: 20px solid #0d6efd;margin: auto; min-width: 300px;box-shadow: 0 1rem 3rem rgba(0,0,0,.175);">
+                                            <% for(var i=data.length-1; i>=0; i--) {%>
+                                                <div style="position: relative;background-color: white;border-bottom: 10px solid #fbc02a;margin: auto; margin-bottom: 10px;"
+                                                    class="message read<%=data[i].readstatus%>">
+                                                    <!-- <div style="position:absolute; right: 10px;top: 10px; cursor: pointer;"
+                                        onclick="location.href='/auth/replyMsg?to=<%= data[i].from.id%>&for=<%=data[i]._id%>&domain=<%= data[i].from.domain%>'">
+                                        Reply
+                                    </div> -->
+                                                    <div class="msgdate">
+                                                        <%= give_time(data[i].date) %>
+                                                    </div>
+                                                    <div class="msgtitle">
+                                                        <%= data[i].title %>
+                                                    </div>
+                                                    <div class="msgbody">
+                                                        <%= data[i].body %>
+                                                    </div>
+                                                    <hr style="margin-top: 2px; margin-bottom:5px;">
+                                                    <div class="pinforow"> <span class="msgsender">
+                                                            From :- <%= data[i].from.name %>
+                                                        </span>
+
+                                                        <!-- <span id="readStatus"
+                                        onclick="location.href='/auth/changeReadStatus?mid=<%=data[i]._id%>&sid=<%=sid%>&role=stud'">
+                                        <% if(!(data[i].readstatus)) {%>
+                                            Mark as Read
+                                            <% }else{ %>
+                                                Mark as Unread
+                                                <% } %>
+                                    </span> -->
+                                                    </div>
+                                                </div>
+                                                <% } }%>
+                                        </div>
+                                        <%- include('footer_log') %>

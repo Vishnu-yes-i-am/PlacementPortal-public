@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
+  <%- include("templateRecr") %>
+    <div class="maincontainer">
+      <%- include("partials/title",{title:"CREATED DRIVES"}) %>
+        <div class="container mt-5 mb-3">
+          <div class="row">
+            <% for(var i=0;i<posted.length;i++){ %>
+              <% if (posted[i].approvedOn) { %>
+                <div class="col-md-4">
+                  <div class="card p-3 mb-2"
+                    style="border-bottom: 10px solid #fbc02a;margin: auto; min-width: 300px;box-shadow: 0 1rem 3rem rgba(0,0,0,.175); min-height: 98%;">
+                    <div class="d-flex justify-content-between">
+                      <div class="d-flex flex-row align-items-center">
+                        <div class="icon"> <i class="fa-solid fa-circle-check"></i> </div>
+                        <div class="ms-2 c-details">
+                          <h6 class="mb-0">Approved</h6> <span>
+                            <%= give_time(posted[i].approvedOn) %>
+                          </span>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="mt-5">
+                      <h3 class="heading">
+                        <%= posted[i].jobDesig%>
+                      </h3>
+                      <div class="mt-5">
+                        <div class="mt-3">
+                          <span class="text1"><span class="text2">Status</span> :
+                            <%=posted[i].process.statusMsg.recruiter[posted[i].process.currentStatus]%>
+                              <br>
+                              <% if(posted[i].process.currentStatus==='s2' ) {%>
+                                <a href="/excel/getListStud?id=<%=posted[i]._id%> " target="_blank"><i
+                                    class="fa-solid fa-download"></i>
+                                  <span>Download</span>
+                                </a>
+
+                                <% } %>
+                                  <button class="btn btn-success" style="margin-top: 20px; background-color: #062acc;"
+                                    onclick="location.href='/auth/show_timeline?d_id=<%=posted[i]._id%>';">Timeline</button>
+                        </div>
+                        <% if(posted[i].process.currentStatus==='s2' ) {%>
+                          <hr>
+                          <div class="mt-3">
+                            <form action="/excel/uploadResult?id=<%=posted[i]._id%>" method="post"
+                              enctype="multipart/form-data">
+                              <input class="form-control" name="result" type="file" accept=".xls,.xlsx">
+                              <button style="margin-top: 5px; background-color: #062acc;" class="btn" id="btnnew"
+                                type="submit">Upload
+                                Result</button>
+                            </form>
+                          </div>
+                          <% } else if(posted[i].process.currentStatus==='s2' ){%>
+                            <hr>
+                            <div class="text">Result Uploaded</div>
+                            <% } %>
+
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <%} else { %>
+                  <div class="col-md-4">
+                    <div class="card p-3 mb-2"
+                      style="border-bottom: 10px solid #fbc02a;margin: auto; min-width: 300px;box-shadow: 0 1rem 3rem rgba(0,0,0,.175); min-height: 98%;">
+                      <div class="d-flex justify-content-between">
+                        <div class="d-flex flex-row align-items-center">
+                          <div class="icon"> <i class="fa-solid fa-circle-check"></i> </div>
+                          <div class="ms-2 c-details">
+                            <h6 class="mb-0">Awaiting Review</h6> <span>
+                              <%= give_time(posted[i].postedDate) %>
+                            </span>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="mt-5">
+                        <h3 class="heading">
+                          <%= posted[i].jobDesig%>
+                        </h3>
+                        <div class="mt-5">
+                          <div class="mt-3">
+                            <span class="text1"><span class="text2">Status</span> :
+                              Under Review
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <% } %>
+
+                      <% } %>
+                  </div>
+          </div>
+
+        </div>
+    </div>
+    <%- include("footer_log") %>
+      </body>

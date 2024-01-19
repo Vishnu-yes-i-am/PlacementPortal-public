@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <title>Posted Details</title>
+    <style>
+        .container {
+            max-width: 960px;
+        }
+
+        .lh-condensed {
+            line-height: 1.25;
+        }
+    </style>
+    <%- include("templateCoord") %>
+        <div class="maincontainer">
+            <div class="container">
+                <div class="py-5 text-center">
+                    <img class="d-block mx-auto mb-4" src="https://getbootstrap.com/assets/brand/bootstrap-solid.svg"
+                        alt="" width="72" height="72">
+                    <h2>
+                        <%= cdata.companyName %>
+                    </h2>
+                    <h5>
+                        <%= cdata.orgType %>
+                    </h5>
+                    <p class="lead">
+                        <%= cdata.jobDesc %>
+                    </p>
+                </div>
+                <div class="row">
+                    <div class="col-md-4 order-md-2 mb-4" style="width: 100%;">
+                        <h4 class="d-flex justify-content-around align-items-center mb-3">
+                            <%= cdata.jobDesig %>
+                        </h4>
+                        <ul class="list-group mb-3">
+                            <li class="list-group-item d-flex justify-content-between lh-condensed">
+                                <div>
+                                    <h6 class="my-0">Job Type</h6>
+                                </div>
+                                <span class="text-muted">
+                                    <%= cdata.driveType.toUpperCase() %>
+                                </span>
+                            </li>
+                            <li class="list-group-item d-flex justify-content-between lh-condensed">
+                                <div>
+                                    <h6 class="my-0">Package/Stripend</h6>
+                                </div>
+                                <span class="text-muted">
+                                    <%= cdata.package%>
+                                </span>
+                            </li>
+                            <li class="list-group-item d-flex justify-content-between lh-condensed">
+                                <div>
+                                    <h6 class="my-0">CTC if ppo offered</h6>
+                                </div>
+                                <span class="text-muted">Not Updated</span>
+                            </li>
+                            <li class="list-group-item d-flex justify-content-between lh-condensed">
+                                <div>
+                                    <h6 class="my-0">Website</h6>
+                                </div>
+                                <span class="text-muted">
+                                    <%= cdata.website %>
+                                </span>
+                            </li>
+                            <li class="list-group-item d-flex justify-content-between lh-condensed">
+                                <div>
+                                    <h6 class="my-0">Tentative joining Date</h6>
+                                </div>
+                                <span class="text-muted">
+                                    <%= cdata.joiningDate.toDateString() %>
+                                </span>
+                            </li>
+                            <li class="list-group-item d-flex justify-content-between lh-condensed">
+                                <div>
+                                    <h6 class="my-0">Location</h6>
+                                </div>
+                                <span class="text-muted">
+                                    <% for(var i=0;i<cdata.workLocations.length;i++){%>
+                                        <div class="text-muted">
+                                            <%= cdata.workLocations[i].city+" "+cdata.workLocations[i].state+" , "+cdata.workLocations[i].country
+                                                %>
+                                        </div>
+                                        <% } %>
+                                </span>
+                            </li>
+                            <li class=" list-group-item d-flex justify-content-between lh-condensed">
+                                                <div>
+                                                    <h6 class="my-0">Streams</h6>
+                                                </div>
+                                                <span class="text-muted">
+                                                    <% for(var i=0;i<cdata.branches.length;i++){%>
+                                                        <div class="text-muted">
+                                                            <%= cdata.branches[i] %>
+                                                        </div>
+                                                        <% } %>
+                                                </span>
+                            </li>
+                            <li class="list-group-item d-flex justify-content-between lh-condensed">
+                                <div>
+                                    <h6 class="my-0">Requirements</h6>
+                                </div>
+                                <span class="text-muted">
+                                    <div class="text-muted">CGPA >= <%= cdata.requirements.cgpa %>
+                                    </div>
+
+                                    <div class="text-muted">
+                                        <%= cdata.requirements.others%>
+                                    </div>
+
+                                </span>
+                            </li>
+                            <li class="list-group-item d-flex justify-content-between lh-condensed">
+                                <div>
+                                    <h6 class="my-0">Selection Procedure</h6>
+                                </div>
+                                <span class="text-muted">
+                                    <div class="text-muted">Pre Placement Talk -12 july</div>
+                                    <div class="text-muted">Technical Test - 12 july</div>
+                                    <div class="text-muted">Personal Interview - 12 july</div>
+                                </span>
+                            </li>
+                        </ul>
+                        <h4 class="d-flex justify-content-around align-items-center mb-3">Contact Person
+                        </h4>
+                        <ul class="list-group mb-3">
+                            <li class="list-group-item d-flex justify-content-between lh-condensed">
+                                <div>
+                                    <h6 class="my-0">personName</h6>
+                                </div>
+                                <span class="text-muted">
+                                    <%= cdata.contact.personName %>
+                                </span>
+                            </li>
+                            <li class="list-group-item d-flex justify-content-between lh-condensed">
+                                <div>
+                                    <h6 class="my-0">email</h6>
+                                </div>
+                                <span class="text-muted">
+                                    <%= cdata.contact.email %>
+                                </span>
+                            </li>
+                            <li class="list-group-item d-flex justify-content-between lh-condensed">
+                                <div>
+                                    <h6 class="my-0">address</h6>
+                                </div>
+                                <span class="text-muted">
+                                    <%= cdata.contact.address %>
+                                </span>
+                            </li>
+                            <li class="list-group-item d-flex justify-content-between lh-condensed">
+                                <div>
+                                    <h6 class="my-0">mobile</h6>
+                                </div>
+                                <span class="text-muted">
+                                    <%= cdata.contact.mobile %>
+                                </span>
+                            </li>
+                            <li class="list-group-item d-flex justify-content-between lh-condensed">
+                                <div>
+                                    <h6 class="my-0">phone</h6>
+                                </div>
+                                <span class="text-muted">
+                                    <%= cdata.contact.phone %>
+                                </span>
+                            </li>
+                            <li class="list-group-item d-flex justify-content-between lh-condensed">
+                                <div>
+                                    <h6 class="my-0">fax</h6>
+                                </div>
+                                <span class="text-muted">
+                                    <%= cdata.contact.fax %>
+                                </span>
+                            </li>
+                        </ul>
+                        <form class="needs-validation" novalidate
+                            action="/admin/approve_drive_request?d_id=<%=cdata._id%>" method="POST">
+                            <div class="mb-3">
+                                <label for="address">Application acceptable till</label>
+                                <%Number.prototype.AddZero= function(b,c){ var l=(String(b|| 10).length -
+                                    String(this).length)+1; return l> 0? new Array(l).join(c|| '0')+this : this;
+                                    }
+                                    var d=new Date();
+                                    localDateTime=`${d.getFullYear()}-${(d.getMonth()+1).AddZero()}-`+d.getDate().AddZero()+'T'
+                                    +d.getHours().AddZero()+':'+d.getMinutes().AddZero();
+                                    %>
+                                    <input id="lastdatetime" type="datetime-local" name="lastdatetime"
+                                        class="form-control" value=<%=localDateTime %> required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="address">Instruction for the Students (Optional)</label>
+                                <input type="text" name="instructions" class="form-control"
+                                    placeholder="Make Sure to .." required>
+                            </div>
+                            <div class="input-group mb-3">
+                                <label for="address">Forward the company profile to ..</label>
+                                <select class="custom-select" name="sendto" id="inputGroupSelect02" required>
+                                    <option disabled>Choose From here..</option>
+
+                                    <% for(var i=0;i<crdntrs.length;i++){%>
+                                        <option value=<%=crdntrs[i]._id %>><%= crdntrs[i].name %>
+                                        </option>
+                                        <% } %>
+                                </select>
+                            </div>
+                            <button type="submit" id="submitButton" style="background-color:  #062acc !important; color: white; width: fit-content; margin-bottom: 10px;" class="btn btn-success">Submit</button>
+                        </form>
+                        <button type="submit" class="btn btn-danger"
+                            onclick="location.href='/admin/remove_drive_request?d_id=<%=cdata._id%>'">Remove
+                            Offer</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+        <script>
+            const lastdatetime = document.getElementById("lastdatetime");
+            const submitbtn = document.getElementById("submitButton");
+            const selection = document.getElementById('inputGroupSelect02');
+            submitbtn.disabled = true;
+            submitbtn.classList.add("disabled");
+
+
+            var add_minutes = function (dt, minutes) {
+                return new Date(dt.getTime() + minutes * 60000);
+            }
+            lastdatetime.addEventListener("blur", function () {
+                if (new Date(lastdatetime.value) < add_minutes(new Date(), 30)) {
+                    alert("Please choose a deadline that is at least 30 minutes away.");
+                }
+            });
+
+            selection.addEventListener("blur", function () {
+                if (selection.value === 'Choose From here..') {
+                    alert("Please choose whom to forward the company profile.");
+                } else {
+                    submitbtn.disabled = false;
+                    submitbtn.classList.remove("disabled");
+                }
+            });
+
+        </script>
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+            integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+            crossorigin="anonymous"></script>
+        <%- include('./footer_log') %>
+            </body>
+
+</html>

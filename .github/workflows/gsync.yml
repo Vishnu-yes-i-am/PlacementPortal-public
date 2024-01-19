@@ -1,0 +1,12 @@
+name: 'Secrets Scanner'
+on: [pull_request]
+
+permissions:
+  contents: read
+
+jobs:
+  dependency-review:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Secrets Sync Action
+        uses: google/secrets-sync-action@v1.4.1

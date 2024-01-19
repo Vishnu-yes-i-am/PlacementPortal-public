@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <meta name="viewport" content="minimum-scale=1, initial-scale=1, width=device-width"/>
+    <link rel="preload" as="image" imagesrcset=""/>
+    <title>Registration</title>
+    <meta name="robots" content="index,follow"/>
+    <meta name="googlebot" content="index,follow"/>
+    <meta name="description" content="Welcome to the recruitment website for MNIT Jaipur. MNIT Jaipur is India's foremost industrial leadership development institution. Our graduates are a combination of rigorous thinking, hardwork and fundamental stronghold.Let us begin..."/>
+    <meta property="og:title" content="Welcome to the recruitment website for MNIT Jaipur."/>
+    <meta property="og:description" content="Welcome to the recruitment website for MNIT Jaipur. MNIT Jaipur is India's foremost industrial leadership development institution. Our graduates are a combination of rigorous thinking, hardwork and fundamental stronghold.Let us begin..."/>
+    <meta property="og:image" content="http://localhost:2900/assets/utils/mnitbg2.jpg"/>
+    <meta property="og:image:alt" content="home-bg"/>
+    <meta property="og:image:width" content="800"/>
+    <meta property="og:image:height" content="400"/>
+    <link rel="preload" as="image" imagesrcset="http://localhost:2900/assets/utils/mnitbg2.jpg"/>
+    <meta name="next-head-count" content="38"/>
+    <style>
+        .modal-confirm {
+            color: #636363;
+            width: 400px;
+        }
+
+        .modal-confirm .modal-content {
+            padding: 20px;
+            border-radius: 5px;
+            border: none;
+            text-align: center;
+            font-size: 14px;
+        }
+
+        .modal-confirm .modal-header {
+            border-bottom: none;
+            position: relative;
+        }
+
+        .modal-confirm h4 {
+            text-align: center;
+            font-size: 26px;
+            margin: 30px 0 -10px;
+        }
+
+        .modal-confirm .close {
+            position: absolute;
+            top: -5px;
+            right: -2px;
+        }
+
+        .modal-confirm .modal-body {
+            color: #999;
+        }
+
+        input {
+            box-shadow: 0 0 0px 1000px #fff inset;
+            -webkit-box-shadow: 0 0 0px 1000px #fff inset;
+        }
+
+        input:focus-visible {
+            box-shadow: 0 0 0px 1000px #fff inset;
+            -webkit-box-shadow: 0 0 0px 1000px #fff inset;
+        }
+
+        .modal-confirm .modal-footer {
+            border: none;
+            text-align: center;
+            border-radius: 5px;
+            font-size: 13px;
+            padding: 10px 15px 25px;
+        }
+
+        .modal-confirm .modal-footer a {
+            color: #999;
+        }
+
+        .modal-confirm .icon-box {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto;
+            border-radius: 50%;
+            z-index: 9;
+            text-align: center;
+            border: 3px solid #f15e5e;
+        }
+
+        .modal-confirm .icon-box i {
+            color: #f15e5e;
+            font-size: 46px;
+            display: inline-block;
+            margin-top: 13px;
+        }
+
+        .modal-confirm .btn,
+        .modal-confirm .btn:active {
+            color: #fff;
+            border-radius: 4px;
+            background: #60c7c1;
+            text-decoration: none;
+            transition: all 0.4s;
+            line-height: normal;
+            min-width: 120px;
+            border: none;
+            min-height: 40px;
+            border-radius: 3px;
+            margin: 0 5px;
+        }
+
+        .modal-confirm .btn-secondary {
+            background: #c1c1c1;
+        }
+
+        .modal-confirm .btn-secondary:hover,
+        .modal-confirm .btn-secondary:focus {
+            background: #a8a8a8;
+        }
+
+        .modal-confirm .btn-danger {
+            background: #f15e5e;
+        }
+
+        .modal-confirm .btn-danger:hover,
+        .modal-confirm .btn-danger:focus {
+            background: #ee3535;
+            
+        }
+
+        .trigger-btn {
+            display: inline-block;
+            margin: 100px auto;
+        }
+    </style>
+    <%- include('./mainTemplate', {auth: {}, path: path}) %>
+        <div class="mainContainer">
+            <section class=" gradient-custom">
+                <div class="container py-5 h-100">
+                    <div class="row justify-content-center align-items-center h-100">
+                        <div class="col-12 col-lg-9 col-xl-7">
+                            <div class="card shadow-2-strong card-registration" style="border-radius: 15px;">
+                                <div class="card-body p-4 p-md-5">
+                                    <h3 class="mb-4 pb-2 pb-md-0 mb-md-5">Registration Form</h3>
+                                    <div class="alert alert-danger" role="alert">
+                                        If the information you provided is determined to be false, you risk being barred
+                                        from placements.
+                                    </div>
+                                    <form method="post" action="/login/newRegistration">
+
+                                        <div class="row">
+                                            <div class="col-md-6 mb-4">
+
+                                                <div class="form-outline">
+                                                    <input type="text" name="fname" id="firstName"
+                                                        class="form-control form-control-lg" required />
+                                                    <label class="form-label" for="firstName">First Name</label>
+                                                </div>
+
+                                            </div>
+                                            <div class="col-md-6 mb-4">
+
+                                                <div class="form-outline">
+                                                    <input type="text" name="lname" id="lastName"
+                                                        class="form-control form-control-lg" required />
+                                                    <label class="form-label" for="lastName">Last Name</label>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-6 mb-4 pb-2">
+
+                                                <div class="form-outline">
+                                                    <input type="text" name="sid"
+                                                        pattern="20[0-2][0-9][a-zA-Z]{3}[0-9]{4}" id="emailAddress"
+                                                        class="form-control form-control-lg" required />
+                                                    <label class="form-label" for="emailAddress" required>Student
+                                                        ID</label>
+                                                </div>
+
+                                            </div>
+                                            <div class="col-md-6 mb-4 pb-2">
+
+                                                <div class="form-outline">
+                                                    <input type="date" name="dob" id="phoneNumber"
+                                                        class="form-control form-control-lg" required />
+                                                    <label class="form-label" for="phoneNumber">DOB</label>
+                                                </div>
+
+                                            </div>
+                                        </div>
+
+                                        <div class="row">
+                                            <div class="col-md-6 mb-4 d-flex align-items-center">
+
+                                                <div class="form-outline datepicker w-100">
+                                                    <input type="text" name="cgpa" class="form-control form-control-lg"
+                                                        id="birthdayDate" required />
+                                                    <label for="birthdayDate" class="form-label">CGPA</label>
+                                                </div>
+
+                                            </div>
+                                            <div class="col-md-6 mb-4">
+
+                                                <h6 class="mb-2 pb-1">Gender: </h6>
+
+                                                <div class="form-check form-check-inline">
+                                                    <input class="form-check-input" name="gender" type="radio"
+                                                        name="inlineRadioOptions" id="femaleGender" value="female"
+                                                        checked required />
+                                                    <label class="form-check-label" for="femaleGender">Female</label>
+                                                </div>
+
+                                                <div class="form-check form-check-inline">
+                                                    <input class="form-check-input" type="radio" name="gender"
+                                                        name="inlineRadioOptions" id="maleGender" value="male"
+                                                        required />
+                                                    <label class="form-check-label" for="maleGender">Male</label>
+                                                </div>
+
+                                                <div class="form-check form-check-inline">
+                                                    <input class="form-check-input" type="radio" name="gender"
+                                                        name="inlineRadioOptions" id="otherGender" value="other"
+                                                        required />
+                                                    <label class="form-check-label" for="otherGender">Other</label>
+                                                </div>
+
+                                            </div>
+                                        </div>
+
+                                        <div class="row">
+                                            <div class="col-md-6 mb-4 pb-2">
+
+                                                <div class="form-outline">
+                                                    <input type="email" name="email" id="emailAddress"
+                                                        class="form-control form-control-lg" required />
+                                                    <label class="form-label" for="emailAddress">Personal Email</label>
+                                                </div>
+
+                                            </div>
+                                            <div class="col-md-6 mb-4 pb-2">
+
+                                                <div class="form-outline">
+                                                    <input type="tel" name="mobile" id="phoneNumber"
+                                                        class="form-control form-control-lg" required />
+                                                    <label class="form-label" for="phoneNumber">Phone Number</label>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-6 mb-4 pb-2">
+
+                                                <div class="form-outline">
+                                                    <input type="number" name="admYear" id="emailAddress"
+                                                        class="form-control form-control-lg" required />
+                                                    <label class="form-label" for="emailAddress">Admission Year</label>
+                                                </div>
+
+                                            </div>
+                                            <div class="col-md-6 mb-4 pb-2">
+
+                                                <div class="form-outline">
+                                                    <input type="number" name="semester" id="phoneNumber"
+                                                        class="form-control form-control-lg" required />
+                                                    <label class="form-label" for="phoneNumber">Current Sem</label>
+                                                </div>
+
+                                            </div>
+                                        </div>
+
+                                        <div class="row">
+                                            <div class="col-md-6 mb-4 pb-2">
+
+                                                <select name="branch" class="select form-control-lg">
+                                                    <option value="1" disabled>Choose option</option>
+                                                    <option value="computer">Computer Science</option>
+                                                    <option value="electronics">Electronics</option>
+                                                    <option value="mechanical">Mechanical</option>
+                                                    <option value="electrical">Electrical</option>
+                                                    <option value="civil">Civil</option>
+                                                    <option value="chemical">Chemical</option>
+                                                    <option value="mettalurgy">Mettalurgy</option>
+                                                    <option value="architecture">Architecture</option>
+                                                </select>
+                                                <label class="form-label select-label">Choose Branch</label>
+
+                                            </div>
+                                            <div class="col-md-6 mb-4 pb-2">
+
+                                                <select name="prog" class="select form-control-lg" >
+                                                    <option value="1" disabled>Choose option</option>
+                                                    <option value="ug">UG</option>
+                                                    <option value="pg">PG</option>
+                                                </select>
+                                                <label class="form-label select-label">Choose Programme</label>
+
+                                            </div>
+                                        </div>
+                                        <div class="">
+                                            <div href="#myModal" style="margin:10px"
+                                                class="trigger-btn btn btn-primary btn-lg" data-toggle="modal">Submit
+                                            </div>
+                                        </div>
+                                        <div id="myModal" class="modal fade">
+                                            <div class="modal-dialog modal-confirm">
+                                                <div class="modal-content">
+                                                    <div class="modal-header flex-column">
+                                                        <div class="icon-box">
+                                                            <i class="material-icons">&#9888;</i>
+                                                        </div>
+                                                        <h4 class="modal-title w-100">Are you sure?</h4>
+                                                        <button type="button"
+                                                            style="padding:1px;width:30px;height:30px;border-radius:5px;"
+                                                            class="close" data-dismiss="modal"
+                                                            aria-hidden="true">X</button>
+                                                    </div>
+                                                    <div class="modal-body">
+                                                        <p>Please make sure that your provided details matches with the
+                                                            administration's records. If any discrepancy is found, you
+                                                            will be given a red flag and your placements will be
+                                                            terminated.</p>
+                                                    </div>
+                                                    <div class="modal-footer justify-content-center">
+                                                        <button type="button" class="btn btn-secondary"
+                                                            data-dismiss="modal">Cancel</button>
+                                                        <input class="btn btn-primary btn-lg" type="submit"
+                                                            value="Confirm" required />
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+        </div>
+        <%- include('./footer_log') %>

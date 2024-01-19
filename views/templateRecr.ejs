@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="minimum-scale=1, initial-scale=1, width=device-width"/>
+    <link rel="preload" as="image" imagesrcset=""/>
+    <title>MNIT JAIPUR</title>
+    <meta name="robots" content="index,follow"/>
+    <meta name="googlebot" content="index,follow"/>
+    <meta name="description" content="Welcome to the recruitment website for MNIT Jaipur. MNIT Jaipur is India's foremost industrial leadership development institution. Our graduates are a combination of rigorous thinking, hardwork and fundamental stronghold.Let us begin..."/>
+    <meta property="og:title" content="Welcome to the recruitment website for MNIT Jaipur."/>
+    <meta property="og:description" content="Welcome to the recruitment website for MNIT Jaipur. MNIT Jaipur is India's foremost industrial leadership development institution. Our graduates are a combination of rigorous thinking, hardwork and fundamental stronghold.Let us begin..."/>
+    <meta property="og:image" content="http://localhost:2900/assets/utils/mnitbg2.jpg"/>
+    <meta property="og:image:alt" content="home-bg"/>
+    <meta property="og:image:width" content="800"/>
+    <meta property="og:image:height" content="400"/>
+    <link rel="preload" as="image" imagesrcset="http://localhost:2900/assets/utils/mnitbg2.jpg"/>
+    <meta name="next-head-count" content="38"/>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="/assets/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+        integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://kit.fontawesome.com/2e45e089e0.js" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
+        crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+    
+    <style>
+        #pimglogo {
+            width: 50px;
+            height: 50px;
+            border: solid #0c1278 2px;
+            border-radius: 50%;
+            background-size: 50px 50px;
+        }
+
+
+        @media screen and (max-width:600px) {
+            .maincontainer {
+                width: 100%;
+                padding: 0;
+            }
+
+        }
+
+        #feedback-form-wrapper #floating-icon>button {
+            position: fixed;
+            right: 0;
+            top: 50%;
+            transform: rotate(-90deg) translate(50%, -50%);
+            transform-origin: right;
+        }
+
+        .rating-input-wrapper input[type="radio"] {
+            display: none;
+        }
+
+        .rating-input-wrapper input[type="radio"]~span {
+            cursor: pointer;
+        }
+
+        .rating-input-wrapper input[type="radio"]:checked~span {
+            background-color: #4261dc;
+            color: #fff;
+        }
+
+        .rating-labels>label {
+            font-size: 14px;
+            color: #777;
+        }
+    </style>
+</head>
+
+<body>
+    <% give_time=function(a){ let curr=new Date().getTime(); let difference=Math.floor(curr / 1000) -
+        Math.floor(a.getTime() / 1000); if (difference < 60) { output=`${difference} seconds ago`; } else if (difference
+        < 3600) { output=`${Math.floor(difference / 60)} minutes ago`; } else if (difference < 86400) {
+        output=`${Math.floor(difference / 3600)} hours ago`; } else if (difference < 2620800) {
+        output=`${Math.floor(difference / 86400)} days ago`; } else if (difference < 31449600) {
+        output=`${Math.floor(difference / 2620800)} months ago`; } else { output=`${Math.floor(difference / 31449600)}
+        years ago`; } return output; } %>
+        <div class="navbar">
+            <div class="container">
+                <div class="navHead" id="navHead">
+                    <img class="navLogo" src="/assets/utils/logo.png"></img>
+                    <div class="navText d-none d-sm-block"> PLACEMENTS, MNIT JAIPUR</div>
+                </div>
+                <div>
+                    <div class="navItems navText">
+                        <ul class="navMenu">
+                            <li class="navItem"> <a class="navLink" href="/auth/home_recruiter">HOME</a> </li>
+                            <li class="navItem"> <a class="navLink" href="/auth/notifications_recr">INBOX</a> </li>
+                            <li class="navItem"> <a class="navLink" href="/auth/myprofile_recr">PROFILE</a></li>
+                            <li class="navItem dropdown">
+                                <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button"
+                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    ACTIONS
+                                </a>
+                                <div class="dropdown-menu" style="background-color: #0c2bc8;"
+                                    aria-labelledby="navbarDropdown">
+                                    <a class="dropdown-item" style="color:white;background-color:#0c1278"
+                                        href="/auth/createDrive?type=jnf">Fill
+                                        JNF</a>
+                                    <a class="dropdown-item" style="color:white;background-color:#0c1278"
+                                        href="/auth/createDrive?type=inf">Fill
+                                        INF</a>
+                                    <a class="dropdown-item" style="color:white;background-color:#0c1278" href="#">Edit
+                                        Profile</a>
+                                    <a class="dropdown-item" style="color:white;background-color:#0c1278"
+                                        style="cursor: pointer;" data-toggle="modal" data-target="#exampleModal">Give
+                                        Feedback</a>
+                                    <a class="dropdown-item"
+                                        style="color:white;background-color:#0c1278;cursor: pointer;"
+                                        data-toggle="modal" data-target="#queryModal">Raise Query</a>
+
+                                </div>
+                            </li>
+                            <li class="navItem"> <a class="navLink" href="/auth/signout">LOGOUT</a> </li>
+
+                        </ul>
+
+                    </div>
+                    <div class="hamburger">
+                        <span class="bar"></span>
+                        <span class="bar"></span>
+                        <span class="bar"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="feedback-form-modal">
+            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Feedback Form</h5>
+                            <button type="button" class="close btn" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <form action="/auth/giveFeedback" method="post">
+                                <div class="form-group">
+                                    <label for="exampleFormControlTextarea1">How was your experience on MNIT Jaipur
+                                        Placement Portal ?</label>
+                                    <div class="rating-input-wrapper d-flex justify-content-between mt-2">
+                                        <label><input type="radio" name="rating" value=1 /><span
+                                                class="border rounded px-3 py-2">1</span></label>
+                                        <label><input type="radio" name="rating" value=2 /><span
+                                                class="border rounded px-3 py-2">2</span></label>
+                                        <label><input type="radio" name="rating" value=3 /><span
+                                                class="border rounded px-3 py-2">3</span></label>
+                                        <label><input type="radio" name="rating" value=4 /><span
+                                                class="border rounded px-3 py-2">4</span></label>
+                                        <label><input type="radio" name="rating" value=5 /><span
+                                                class="border rounded px-3 py-2">5</span></label>
+                                        <label><input type="radio" name="rating" value=6 /><span
+                                                class="border rounded px-3 py-2">6</span></label>
+                                        <label><input type="radio" name="rating" value=7 /><span
+                                                class="border rounded px-3 py-2">7</span></label>
+                                        <label><input type="radio" name="rating" value=8 /><span
+                                                class="border rounded px-3 py-2">8</span></label>
+                                        <label><input type="radio" name="rating" value=9 /><span
+                                                class="border rounded px-3 py-2">9</span></label>
+                                        <label><input type="radio" name="rating" value=10 /><span
+                                                class="border rounded px-3 py-2">10</span></label>
+                                    </div>
+                                    <div class="rating-labels d-flex justify-content-between mt-1">
+                                        <label>Very unlikely</label>
+                                        <label>Very likely</label>
+                                    </div>
+                                </div>
+                                <div class="form-group mt-2">
+                                    <label for="input-two">Would you like to say something?</label>
+                                    <textarea class="form-control" id="input-two" rows="3" name="feed"></textarea>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                    <button type="submit" class="btn btn-primary">Submit</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="query-form-modal">
+            <div class="modal fade" id="queryModal" tabindex="-1" aria-labelledby="queryModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="queryModalLabel">Feedback Form</h5>
+                            <button type="button" class="close btn" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <form action="/auth/raiseQuery" method="post">
+
+                                <div class="form-group">
+                                    <label for="q-title">Query Title</label>
+                                    <input class="form-control" type="text" name="qtitle" maxlength="100" id="q-title">
+                                </div>
+                                <div class="form-group mt-2">
+                                    <label for="q-detail">Brief detail about your query</label>
+                                    <textarea class="form-control" id="q-detail" rows="3" name="qdetail"></textarea>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                    <button type="submit" class="btn btn-primary">Submit</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <script>
+                const logo = document.getElementById("navHead");
+                logo.addEventListener("click", () => {
+                    location.href = "/";
+                })
+                logo.style.cursor = "pointer"
+            </script>
+        </div>
+
+
+
+        <!-- <div class="outercontainer">
+            <div class="collapse collapse-horizontal" style="position: absolute;" id="collapseWidthExample">
+                <div class="leftbar">
+                    <ul class="list-group-vm">
+                        <li class="list-vm" onclick="location.href='/auth/home_coordinator'"><i
+                                class="fa-solid fa-house"></i><span class="listtext">Home</span></li>
+                        <li class="list-vm"><i class="fa-solid fa-user"></i><span class="listtext">Edit Profile</span>
+                        </li>
+                        <li class="list-vm" onclick="location.href='/auth/notifications_coord'"><i
+                                class="fa-solid fa-envelope-open-text"></i><span class="listtext">Inbox</span>
+                        </li>
+                        <li class="list-vm" onclick="location.href='/auth/create_notice'"><i
+                                class="fa-solid fa-message"></i><span class="listtext">Create
+                                Notice</span>
+                        </li>
+                        <% if(data.role===1) {%>
+                            <li class="list-vm" onclick="location.href='/auth/create_role'"><i
+                                    class="fa-solid fa-person-circle-plus"></i><span class="listtext">Create
+                                    Role</span>
+                            </li>
+                            <% } %>
+                                <li class="list-vm" onclick="location.href='/auth/signout'"><i
+                                        class="fa-solid fa-right-from-bracket"></i><span class="listtext">Signout</span>
+                                </li>
+                    </ul>
+                </div>
+            </div> -->

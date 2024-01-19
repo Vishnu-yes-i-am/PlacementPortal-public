@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <%- include("templateCoord") %>
+        <link rel="stylesheet" href="style1.css">
+        <div class="container">
+            <%- include("partials/title",{title:"APPLIED STUDENTS"}) %>
+                <div>
+                    <div class="logo"><img class="cmpLogo" src=<%=dd.logo %> alt="Logo"></img></div>
+                    <h3 class="text">
+                        <%= dd.c_name %>
+                    </h3>
+                </div>
+                <div class="table-container">
+                    <p>Type something in the input field to search the table</p>
+                    <input class="form-control" id="myInput" type="text" placeholder="Search..">
+                    <br>
+                    <table>
+                        <thead>
+
+                            <tr>
+                                <th>Student Name</th>
+                                <th>Branch</th>
+                                <th>CG</th>
+                                <th>Resume</th>
+                                <th>Contact No.</th>
+                                <th>Email Address</th>
+                                <th>Confirmation</th>
+                                <th>Write Message</th>
+                            </tr>
+                        </thead>
+                        <tbody id="myTable">
+
+                            <%for(var i=0;i<students.length;i++){%>
+                                <tr>
+                                    <td>
+                                        <!-- <div class="slogo"><img class="stdLogo"
+                                            src="./public/images/stud/<%=students[i]._id%>" alt="Logo"></img>
+                                    </div> -->
+                                        <div>
+                                            <%= students[i].first_name +" "+ students[i].last_name %>
+                                </div>
+                            </td>
+                            <td class=" tableData">
+                                                <div>
+                                                    <%=students[i].branch%>
+                                                </div>
+
+                                    </td>
+                                    <td class="tableData">
+                                        <div>
+                                            <%=students[i].cgpa%>
+                                        </div>
+
+                                    </td>
+                                    <td class="tableData">
+                                        <a style="color: blue; border: transparent;"
+                                            href='/resume/view?id=<%=students[i]._id%>' target="_blank">View Resume</a>
+
+                                    </td>
+                                    <td class="tableData">
+                                        <div>
+                                            <%=students[i].mobile%>
+                                        </div>
+
+                                    </td>
+                                    <td class="tableData">
+                                        <div class="email">
+                                            <%=students[i].student_id%>@mnit.ac.in
+                                        </div>
+
+                                    </td>
+                                    <td class="tableData">
+                                        <% if(dd.process.currentStatus==='s1' ){ %>
+                                            <form action="/auth/verifyStud" method="POST">
+                                                <input type="text" hidden name="id" value=<%=dd.c_id %> >
+                                                <input type="text" hidden name="sid" value=<%=students[i]._id%> >
+                                                <select name="request" class="combo form-control" onchange="this.form.submit()">
+                                                    <option selected>
+                                                        <%=students[i].status %>
+                                                    </option>
+                                                    <option value="approved">Approve</option>
+                                                    <option value="rejected">Reject</option>
+                                                </select>
+                                            </form>
+                                            <% }else{%>
+                                                <select name="request" class="combo form-control" onchange="this.form.submit()">
+                                                    <option selected>
+                                                        <%=students[i].status %>
+                                                    </option>
+                                                </select>
+                                                <% } %>
+
+
+                                    </td>
+                                    <td class="tableData">
+                                        <div class="msg">
+                                            <textarea rows="1" cols="20" name="description"
+                                                class="tArea form-control">Write Message here...</textarea>
+                                            <!-- <button class="btn5" type="submit">Send</button> -->
+                                            </form>
+                                        </div>
+
+                                    </td>
+                                </tr>
+                                <%}%>
+
+                        </tbody>
+
+                    </table>
+                </div>
+        </div>
+        <div style="display:flex;justify-content: space-around;">
+            <% if(dd.process.currentStatus=="s1" ){ %>
+                <button class="btn1 green" onclick="location.href='/excel/sendList?id=<%=dd.c_id%>'">Send List to
+                    Recruiter</button>
+                <% }else{%>
+                    <button class="btn btn-primary" style="width: fit-content;">List Sent</button>
+                    <% } %>
+        </div>
+        <script>
+            $(document).ready(function () {
+                $("#myInput").on("keyup", function () {
+                    var value = $(this).val().toLowerCase();
+                    $("#myTable tr ").filter(function () {
+                        $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+                    });
+                });
+            });
+        </script>
+        <%- include('./footer_log') %>
+            </body>
+
+</html>

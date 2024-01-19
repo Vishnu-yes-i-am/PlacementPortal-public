@@ -1,0 +1,412 @@
+body {
+  background-color: #0c2bc8;
+  /* background-image: linear-gradient(315deg, #130f40 0%, #000000 74%); */
+
+  /* background-image: url("/assets/utils/backg.jpg"); */
+  background-repeat: no-repeat;
+  background-size: cover;
+  font-family: 'Montserrat', sans-serif;
+  margin: 0;
+}
+
+.alert {
+  animation-name: alert;
+  animation-duration: 6s;
+  animation-iteration-count: 1;
+  opacity: 0%;
+  font-size: 20px;
+}
+
+@keyframes alert {
+  0% {
+    display: inherit;
+    transform: translateY(-100%);
+    opacity: 100%;
+  }
+
+  33% {
+    display: inherit;
+    transform: translateY(100%);
+    opacity: 100%;
+  }
+
+  100% {
+    display: none;
+    transform: translateY(100%);
+    opacity: 0%;
+  }
+}
+
+
+h2,
+h3 {
+  color: seashell;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.flex-container {
+  display: flex;
+  flex-direction: row;
+  font-size: 30px;
+  text-align: center;
+}
+
+::-webkit-scrollbar {
+  display: none;
+}
+
+.flex-item-left {
+  /* height:35.6rem; */
+  margin: auto 5rem;
+  flex: 30%;
+}
+
+.flex-item-right {
+  text-align: center;
+  color: rgb(25, 27, 29);
+  background-color: rgb(255, 255, 255, 0.9);
+  height: 100%;
+  margin: 0px;
+  flex: 70%;
+}
+
+/* Responsive layout - makes a one column-layout instead of two-column layout */
+@media (max-width: 900px) {
+  .flex-container {
+    flex-direction: column;
+  }
+
+  .flex-item-left {
+    width: 100%;
+    margin: auto;
+  }
+
+  .flex-item-right {
+    width: 100%;
+  }
+}
+
+h2,
+h3 {
+  font-size: x-large;
+}
+
+.form-signin {
+  font-size: large;
+  width: 100%;
+  /* 
+  padding: 15px;
+  margin: 7rem auto; */
+
+}
+
+.form-signin .checkbox {
+  font-weight: 400;
+}
+
+.form-signin .form-control {
+  position: relative;
+  box-sizing: border-box;
+  height: auto;
+  padding: 11px;
+  font-size: 12px;
+  border: 0;
+  width: 100%;
+  border-radius: initial;
+  box-shadow: 0 0 0px 1000px #fff inset;
+  -webkit-box-shadow: 0 0 0px 1000px #fff inset;
+
+}
+
+.btn {
+  font-family: Arial;
+  background: linear-gradient(to right, #f7b733, #fc4a1a);
+  color: #fff;
+  border: 3px solid #eee;
+  border-radius: 35px;
+  font-size: 20px;
+  padding: 10px 20px 10px 20px;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.btn:hover {
+  background: #454545;
+  background-image: -webkit-linear-gradient(top, #454545, #636363);
+  background-image: -moz-linear-gradient(top, #454545, #636363);
+  background-image: -ms-linear-gradient(top, #454545, #636363);
+  background-image: -o-linear-gradient(top, #454545, #636363);
+  background-image: linear-gradient(to bottom, #454545, #636363);
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+ul {
+  font-size: medium;
+  text-decoration: none;
+}
+
+li {
+  margin: 10px;
+  text-decoration: none;
+  display: inline;
+}
+
+a {
+  text-decoration: none;
+}
+
+#student-form {
+  display: block;
+}
+
+#coordinator-form {
+  display: none;
+}
+
+#recruiter-form {
+  display: none;
+}
+
+h1 {
+  font-size: 2.5rem;
+}
+
+#studentBtn {
+  font-size: 1rem;
+}
+
+#corrdinatorBtn {
+  font-size: 1rem;
+}
+
+#recruiterBtn {
+  font-size: 1rem;
+}
+
+#studentBtn:hover {
+  color: #0c2bc8;
+  cursor: pointer;
+
+}
+
+#corrdinatorBtn:hover {
+  color: #0c2bc8;
+  cursor: pointer;
+
+}
+
+#recruiterBtn:hover {
+  color: #0c2bc8;
+  cursor: pointer;
+
+}
+
+#studentBtn.active {
+  color: #0c2bc8;
+}
+
+#corrdinatorBtn.active {
+  color: #0c2bc8;
+}
+
+#recruiterBtn.active {
+  color: #0c2bc8;
+}
+
+#rightDisplay {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: calc(100vh - 37px);
+}
+
+input {
+  box-shadow: 0 0 0px 1000px #fff inset;
+  -webkit-box-shadow: 0 0 0px 1000px #fff inset;
+}
+
+input:focus-visible {
+  outline: inherit;
+  box-shadow: 0 0 0px 1000px #fff inset;
+  -webkit-box-shadow: 0 0 0px 1000px #fff inset;
+}
+
+label {
+  float: left;
+  font-size: 14px;
+  font-weight: normal;
+  color: #2e2c2ccc
+}
+
+.inputIcon {
+  display: flex;
+  border: solid 1px #a39f9f;
+}
+
+.inputIcon span {
+  background: #a39f9f;
+  padding: 6.5px;
+}
+
+.inputIcon span svg {
+  width: 20px;
+  fill: #fff;
+}
+
+.fontsize {
+  font-size: 0;
+}
+
+.forgotPassword {
+  text-decoration: none;
+  color: #000;
+  font-size: 13px;
+  padding-top: 12px;
+  display: block;
+  cursor: pointer;
+}
+
+.registerForm {
+  padding: 10px 59px;
+}
+
+.registerForm .inputIcon {
+  margin-bottom: 20px;
+  width: 48%;
+  float: left;
+  margin-right: 2%;
+}
+
+.registerForm .inputIcon span {
+  background: #a39f9f;
+  padding: 3px 14px;
+}
+
+.registerForm .inputIcon input {
+  position: relative;
+  box-sizing: border-box;
+  height: auto;
+  padding: 11px;
+  font-size: 12px;
+  border: 0;
+  width: 100%;
+  border-radius: initial;
+  box-shadow: 0 0 0px 1000px #fff inset;
+  -webkit-box-shadow: 0 0 0px 1000px #fff inset;
+}
+
+.registerForm .inputIcon .form-control:focus {
+  box-shadow: 0 0 0px 1000px #fff inset;
+  -webkit-box-shadow: 0 0 0px 1000px #fff inset;
+}
+
+.registerForm textarea {
+  font-size: 12px;
+  border: solid 1px #a39f9f;
+  min-height: 70px;
+  width: 98%;
+  box-shadow: 0 0 0px 1000px #fff inset;
+  -webkit-box-shadow: 0 0 0px 1000px #fff inset;
+}
+
+.registerForm textarea:focus {
+  box-shadow: 0 0 0px 1000px #fff inset;
+  -webkit-box-shadow: 0 0 0px 1000px #fff inset;
+  border: solid 1px #a39f9f;
+}
+
+.agreePolicies {
+  display: flex;
+  align-items: baseline;
+  margin-top: 10px;
+}
+
+.agreePolicies .form-group {
+  display: block;
+  margin-bottom: 15px;
+  position: relative;
+}
+
+.agreePolicies .form-group label {
+  position: relative;
+  cursor: pointer;
+}
+
+.agreePolicies .form-group input {
+  position: absolute;
+  left: 0;
+  width: 24px;
+  height: 24px;
+  z-index: 9;
+  opacity: 0;
+}
+
+.agreePolicies .form-group label:before {
+  content: '';
+  -webkit-appearance: none;
+  background-color: transparent;
+  border: 2px solid #fbc02a;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05), inset 0px -15px 10px -12px rgba(0, 0, 0, 0.05);
+  padding: 10px;
+  display: inline-block;
+  position: relative;
+  vertical-align: middle;
+  cursor: pointer;
+  margin-right: 5px;
+}
+
+.agreePolicies .form-group input:checked+label:after {
+  content: '';
+  display: block;
+  position: absolute;
+  top: 2px;
+  left: 9px;
+  width: 6px;
+  height: 14px;
+  border: solid #fbc02a;
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+}
+
+
+@media screen and (max-width:900px) {
+  .loginPage img {
+    margin-top: 20px;
+    width: 90px;
+  }
+
+  .loginPage h2,
+  .loginPage h3 {
+    font-size: 13px;
+  }
+
+  #rightDisplay {
+    height: auto;
+    margin-top: 30px;
+    margin-bottom: 20px;
+  }
+
+  #rightDisplay h1 {
+    font-size: 25px;
+    margin: 0;
+    margin-bottom: 12px;
+  }
+
+  #studentBtn,
+  #corrdinatorBtn,
+  #recruiterBtn {
+    font-size: 12px;
+  }
+
+  #student-form label {
+    font-size: 12px;
+  }
+
+  .registerForm .inputIcon {
+    width: 100%;
+  }
+}

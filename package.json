@@ -1,0 +1,44 @@
+{
+  "name": "placementportal",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Vishnu-yes-i-am/PlacementPortal.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Vishnu-yes-i-am/PlacementPortal/issues"
+  },
+  "homepage": "https://github.com/Vishnu-yes-i-am/PlacementPortal#readme",
+  "dependencies": {
+    "@google-cloud/local-auth": "^2.1.1",
+    "@supercharge/strings": "^1.28.0",
+    "bcrypt": "^5.0.1",
+    "crypto": "^1.0.1",
+    "deep-email-validator": "^0.1.21",
+    "dotenv": "^16.0.1",
+    "ejs": "^3.1.8",
+    "email-validator": "^2.0.4",
+    "express": "^4.18.1",
+    "express-rate-limit": "^6.5.1",
+    "express-session": "^1.17.3",
+    "fs": "^0.0.1-security",
+    "googleapis": "^108.0.0",
+    "mongodb": "^4.17.0",
+    "mongoose": "^6.12.0",
+    "multer": "^1.4.5-lts.1",
+    "node-latex": "^3.1.0",
+    "nodemailer": "^6.7.8",
+    "nodemon": "^2.0.18",
+    "open": "^8.4.0",
+    "sharp": "^0.32.6",
+    "xlsx": "^0.18.5"
+  }
+}

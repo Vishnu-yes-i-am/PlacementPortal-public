@@ -1,0 +1,11 @@
+node_modules/
+.env
+public/images/*
+public/pdfs/*
+public/results/*
+public/resume/*
+public/uploads/*
+public/xls/*
+API/Calendar/credentials/
+.vscode/*
+.vscode

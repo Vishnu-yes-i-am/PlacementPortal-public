@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <%- include('./mainTemplate', {auth: auth, path:path}) %>
+        <div style="width: 100%; margin-bottom: 30px;">
+            <div class="aboutC">
+                <img class="about"></img>
+                <div class="abouto">
+                    <div class="container">
+                        <div class="glass">
+                            <h2>PLACEMENT PORTAL</h2>
+                            <h5>Welcome to the recruitment website for MNIT Jaipur.
+                                MNIT Jaipur is India's foremost industrial leadership development institution. Our
+                                graduates
+                                are
+                                a
+                                combination of rigorous thinking, hardwork and fundamental stronghold.Let us begin...
+                            </h5>
+                        </div>
+                        <div class="aboutButtons">
+                            <!-- <div class="clickHand"></div> -->
+                            <button onclick="location.href='/login_student'" class="abtBtn"><i
+                                    class="fa-solid fa-user-graduate"></i>
+                                Student</button>
+
+                            <button onclick="location.href='/login_coordinator'" class="abtBtn"><i
+                                    class="fa-solid fa-people-roof"></i>Coordinator</button>
+                            <button onclick="location.href='/login_recruiter'" class="abtBtn"><i
+                                    class="fa-solid fa-briefcase"></i>Recruiter</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- <marquee width="100%" height="50px" direction="left" onmouseenter="this.stop()"
+            style="font-size: 24px;background-color: #0c2bc8;color: white;margin: 0;" onmouseleave="this.start()">
+            Welcome to the recruitment website for MNIT Jaipur. MNIT Jaipur is India's foremost industrial leadership
+            development institution. Our graduates are a combination of rigorous thinking, hardwork and fundamental
+            stronghold. Let us begin...
+        </marquee> -->
+        <br>
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12 col-md-12">
+                    <div class="  shadow-lg rounded p-4   border-primary">
+                        <div class="row" style="width:100%">
+                            <div class="col-md-10" style="width:100%">
+                                <div class="tab-content" id="myTabContent">
+                                    <div class="tab-pane fade show active" id="updates" role="tabpanel"
+                                        aria-labelledby="home-tab">
+                                        <h4><i class="fa fa-bullhorn"></i> Latest News/Notices</h4>
+                                        <div>
+                                            <marquee direction="up" behavior="scroll" scrollamount="3"
+                                                onmouseover="stop()" onmouseout="start()"
+                                                style="min-height:280px; max-height:280px;margin-top: 10px;font-size: 14px;">
+                                                <% for(var i=0;i<news.length;i++) {%>
+                                                    <a href="#" target="_blank"
+                                                        style="text-decoration:none; color:#000;">
+                                                        <%=news[i].title%>
+                                                    </a>
+                                                    <hr>
+                                                    <% } %>
+                                            </marquee>
+                                            <br><br>
+                                            <!-- <a 
+                                            class="btn mnit-bg-blue  btn-md float-end text-white rounded shadow">View all »</a> -->
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- /.col-md-8 -->
+                            </div>
+
+
+
+                        </div>
+                        <!-- /.container -->
+
+                    </div>
+                </div>
+                <div class="col-xs-12 col-md-12 mt-4">
+                    <div class="card mb-3"
+                        style="border-bottom: 10px solid #fbc02a; box-shadow: 0 1rem 3rem rgba(0,0,0,.175);">
+                        <div class="row">
+                            <div class="col-xs-12 col-md-6">
+                                <img src="/assets/utils/wwr.jpg" class="card-img-top" width="60%" alt="...">
+                            </div>
+                            <div class="col-xs-12 col-md-6">
+                                <div class="card-body">
+                                    <h5 class="card-title">WHO WE ARE</h5>
+                                    <hr>
+                                    <p class="card-text" style="font-family: 'Roboto', sans-serif;">The T&P cell
+                                        collaborates with leading
+                                        organizations for setting up
+                                        internship and training program of students.The Office interacts with many
+                                        companies/industries in
+                                        the country, of which nearly 200 companies visit the campus for holding campus
+                                        interviews. These
+                                        organizations which approach the institute come under the purview of: Core
+                                        Engineering Industries,
+                                        IT & IT enabled services, Manufacturing, Consultancy Firms, Investment & Finance
+                                        Companies,
+                                        Management Organisations, R & D laboratories.</p>
+                                    <!-- <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p> -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <%- include("partials/title",{title:"OUR VALUES"}) %>
+            <!-- <div class="headtext">Our Students, Departments, Research</div> -->
+            <div class="cards container" id="cardRow">
+                <div class="card1">
+                    <div class="cardImage">
+                        <img style="margin:auto;" src="/assets/utils/student.png" width="200px" height="200px" alt="">
+                    </div>
+                    <div class="card_data">
+                        <h3 class="value_text"> STUDENTS</h3>
+                        <p class="value_description">MNIT Jaipur Draws On A Reserve Of Extraordinary Talent.</p>
+                        <!-- <button class="btn">Read More</button> -->
+                    </div>
+                </div>
+                <div class="card1">
+                    <div class="cardImage">
+                        <img style="margin:auto;" src="/assets/utils/department.png" width="200px" height="200px"
+                            alt="">
+                    </div>
+                    <div class="card_data">
+                        <h3 class="value_text"> DEPARTMENTS</h3>
+                        <p class="value_description">MNIT Jaipur Is Home To 70+ Disciplines And 10+ Different Departments.</p>
+                        <!-- <button class="btn">Read More</button> -->
+                    </div>
+                </div>
+                <div class="card1">
+                    <div class="cardImage">
+                        <img style="margin:auto;" src="/assets/utils/research.png" width="200px" height="200px" alt="">
+                    </div>
+                    <div class="card_data">
+                        <h3 class="value_text">RESEARCH</h3>
+                        <p class="value_description">The Industrial R&D Unit Has Been Specifically Set Up To Provide Specialised
+                            Administrative.
+                        </p>
+                        <!-- <button class="btn">Read More</button> -->
+                    </div>
+                </div>
+            </div>
+            <%- include("partials/title",{title:"RANKINGS"}) %>
+                <div class="rank_card_group">
+                    <div class="rank_cards container">
+                        <div class="rank_card">
+                            <div class="mhrdlogo logo"></div>
+                            <div class="text2">Institute Of National Inportance</div>
+                            <div class="ionilogo logo"></div>
+                        </div>
+                        <div class="rank_card">
+                            <div class="text2">Overall Ranking</div>
+                            <div class="headtext2">
+                                <%= data.rankOverAll_nirf %>
+                            </div>
+                            <div class="text2">Engineering Ranking</div>
+                            <div class="headtext2">
+                                <%= data.rankEngineering_nirf %>
+                            </div>
+                            <div class="nirflogo logo"></div>
+                        </div>
+                        <div class="rank_card">
+                            <div class="text2">Engineering Rank</div>
+                            <div class="headtext2">17</div>
+                            <div class="indiatodaylogo logo"></div>
+                        </div>
+                        <div class="rank_card">
+                            <div class="text2">Overall Ranking</div>
+                            <div class="headtext2">21</div>
+                            <div class="text2">Engineering Ranking</div>
+                            <div class="headtext2">20</div>
+                            <div class="theweeklogo logo"></div>
+                        </div>
+                    </div>
+                </div>
+                <%- include("partials/title",{title:"PLACEMENT STATS "+ (data.prev_year - 1)+ " - " +data.prev_year}) %>
+
+            <div class=" chart-container" id="chart-container">
+                    <canvas id="barChart"></canvas>
+                    </div>
+                    <div id="chart-container2" class="container">
+                        <div class="pieCharts">
+                            <div class="pieChart">
+                                <canvas id="pieChart1"></canvas>
+                            </div>
+                            <div class="pieChart">
+                                <canvas id="pieChart2"></canvas>
+                            </div>
+                        </div>
+                        <div class="statsBox">
+                            <div class="stats" id="stat1">
+                                <div class="headtext2">
+                                    <%= data.maxCTC %>
+                                </div>
+                                <div class="text2">Max CTC offered</div>
+                            </div>
+                            <div class="stats" id="stat2">
+                                <div class="headtext2">
+                                    <%= data.avgCTC %>
+                                </div>
+                                <div class="text2">Avg CTC Offered</div>
+                            </div>
+                            <div class="stats" id="stat3">
+                                <div class="headtext2">
+                                    <%= data.ppos %>
+                                </div>
+                                <div class="text2">Pre-Placement Offers</div>
+                            </div>
+                            <div class="stats" id="stat4">
+                                <div class="headtext2">
+                                    <%= data.visitedCompanied %>
+                                </div>
+                                <div class="text2">Companies Visited</div>
+                            </div>
+                            <div class="stats" id="stat5">
+                                <div class="headtext2">
+                                    <%= data.internships %>
+                                </div>
+                                <div class="text2">On-Campus Internships</div>
+                            </div>
+                        </div>
+                    </div>
+                    <%- include("partials/title",{title:"OUR TOP RECRUITERS"}) %>
+                        <div class="container3">
+                            <div class="recruiters">
+                                <div class="recruiter_card">
+                                    <div class="text4">MNIT Jaipur is home to many leading recruiters of India. More
+                                        than
+                                        150
+                                        companies
+                                        visits for the
+                                        placement every year</div>
+                                    <!-- <div class="btn btn-primary m-auto">READ MORE</div> -->
+                                </div>
+                            </div>
+                            <!-- <div class="footer">
+            <div class="footerdata">
+                <div style="flex-direction:column" class="footercolumn">
+                    <div class="logo_name">
+                        <div class="logo_mnit"></div>
+                        <div>PT Cell</div>
+                    </div>
+                    <div class="clg_address">
+                        Malaviya National Institute of Technology Jaipur <br>
+                        JLN Marg, Jaipur- 302017 <br>
+                        Rajasthan India
+                    </div>
+                </div>
+                <div class="seperator"></div>
+                <div class="footercolumn">
+                    HOME <br>
+                    DEPARTMENTS <br>
+                    DOWNLOADS <br>
+                    CONTACT US
+                </div>
+                <div class="seperator"></div>
+                <div class="footercolumn">
+                    ROOM NEWS <br>
+                    RND NEWS<br>
+                    PAST RECRUITERS<br>
+                    STUDENT TEAM
+                </div>
+                <div class="seperator"></div>
+                <div class="footercolumn">
+                    MNITJ HOME<br>
+                    MNITJ WEBMAI<br>
+                    MNITJ CIRCULLUM<br>
+                    ACADEMIC CALENDER
+                </div>
+            </div>
+        </div> -->
+                            <!-- <div class="footline">&#169; 2020 Placement & Training Cell , MNIT Jaipur</div>
+    </div> -->
+                            <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+                            <script src="index.js"></script>
+                            <%- include('./footer_log') %>
+                                </body>
+
+</html>

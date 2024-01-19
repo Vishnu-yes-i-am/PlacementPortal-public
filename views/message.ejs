@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <style>
+        .pageBox {
+            border: solid black 1px;
+            padding-inline: 5px;
+            margin-left: 1px;
+            text-decoration: none;
+            color: white;
+            background-color: rgb(158, 219, 236);
+            border-radius: 4px;
+        }
+
+        .pagination {
+            width: fit-content;
+            margin: auto;
+        }
+
+        .vinput:focus {
+            border: none;
+            outline: none;
+        }
+
+        .vinput:active {
+            border: none;
+            outline: none;
+        }
+
+        .vtarget {
+            display: flex;
+            flex-direction: column;
+        }
+    </style>
+    <link rel="stylesheet" href="style1.css">
+    <%- include("templateRecr") %>
+        <div class="maincontainer">
+            <%- include("partials/title",{title:"SEND MESSAGE"}) %>
+                <div class="createnotice">
+                    <div class="notecontainer">
+                        <div class="card"
+                            style="display:flex;flex-wrap: nowrap;width:fit-content; flex-direction: row;min-height: 50px; padding-inline: 10px;">
+                            <span style="font-size: x-large;margin-top:5px;color: cornflowerblue;">TO <i
+                                    class="fa-solid fa-caret-right" style="margin-right: 10px;"></i>
+                            </span>
+                            <div class="card"
+                                style="background-color: dodgerblue; width:fit-content;height:fit-content; margin:5px;margin-inline: auto;padding: 5px; display:inline">
+                                <%=checked.id%>
+                            </div>
+                        </div>
+                        <form action="/auth/message" method="POST" class="card" id="postCard"
+                            style="margin: 10px;border: solid 0.5px black; padding:5px">
+                            <div class="vtarget">
+                                <input name="title" class="vinput" type="text"
+                                    style="border:none;padding-left: 10px;font-size: x-large;font-weight: 400;"
+                                    name="title" placeholder="Title" maxlength="100" required>
+                                <textarea name="message" class="vinput"
+                                    style="border:none;resize:none;overflow-y: scroll; padding:5px;padding-left: 10px;font-size: large;font-weight: 50;"
+                                    placeholder="Write a description..." id="" cols="30" rows="4" maxlength="5000"
+                                    required></textarea>
+                            </div>
+                            <hr>
+                            <div style="display: flex;justify-content:space-between">
+                                <span style="font-style: italic;font-size: small;"><i class="fa-solid fa-paperclip"></i>
+                                    Attach a
+                                    file</span><button class="btn">Send</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+        </div>
+        </div>
+        <script>
+            const box = document.querySelector('.vtarget');
+            box.addEventListener('click', (e) => {
+                e.path[2].style.border = "solid blue 2px";
+            });
+            document.addEventListener("click", (e) => {
+                console.log(e.target,)
+                if (!box.contains(e.target)) {
+                    console.log(e.path[2].style.border)
+                    console.log("changed");
+                    document.getElementById('postCard').style.border = "solid black 1px";
+                }
+
+
+            });
+        </script>
+        </body>
+        <%- include('./footer_log') %>
+
+</html>

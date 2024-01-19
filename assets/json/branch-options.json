@@ -1,0 +1,34 @@
+[
+    {
+        "name": "COMPUTER SCIENCE",
+        "value": "COMPUTER SCIENCE"
+    },
+    {
+        "name": "ELECTRONICS",
+        "value": "ELECTRONICS"
+    },
+    {
+        "name": "ELECTRICAL",
+        "value": "ELECTRICAL"
+    },
+    {
+        "name": "MECHANICAL",
+        "value": "MECHANICAL"
+    },
+    {
+        "name": "CIVIL",
+        "value": "CIVIL"
+    },
+    {
+        "name": "METALLURGY",
+        "value": "METALLURGY"
+    },
+    {
+        "name": "CHEMICAL",
+        "value": "CHEMICAL"
+    },
+    {
+        "name": "ARCHITECTURE",
+        "value": "ARCHITECTURE"
+    }
+]

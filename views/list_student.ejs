@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <%- include("templateRecr") %>
+        <div class="maincontainer">
+            <%- include("partials/title",{title:"SRYDENT LIST"}) %>
+
+                <div class="table-container">
+                    <p>Type something in the input field to search the table</p>
+                    <input class="form-control" id="myInput" type="text" placeholder="Search..">
+                    <br>
+                    <table>
+                        <thead>
+
+                            <tr>
+                                <th>Student Name</th>
+                                <th>Branch</th>
+                                <th>CG</th>
+                                <th>Resume</th>
+                                <th>Contact No.</th>
+                                <th>Email Address</th>
+                            </tr>
+                        </thead>
+                        <tbody id="myTable">
+
+                            <%for(var i=0;i<students.length;i++){%>
+                                <tr>
+                                    <td>
+                                        <div>
+                                            <%= students[i].first_name +" "+ students[i].last_name %>
+                                </div>
+                            </td>
+                            <td class=" tableData">
+                                                <div>
+                                                    <%=students[i].branch%>
+                                                </div>
+
+                                    </td>
+                                    <td class="tableData">
+                                        <div>
+                                            <%=students[i].cgpa%>
+                                        </div>
+
+                                    </td>
+                                    <td class="tableData">
+                                        <a style="color: blue; border: transparent;"
+                                            href='/resume/viewCandidate?id=<%=students[i]._id%>' target="_blank">View
+                                            Resume</a>
+
+                                    </td>
+                                    <td class="tableData">
+                                        <div>
+                                            <%=students[i].mobile%>
+                                        </div>
+
+                                    </td>
+                                    <td class="tableData">
+                                        <div class="email">
+                                            <%=students[i].student_id%>@mnit.ac.in
+                                        </div>
+
+                                    </td>
+                                </tr>
+                                <%}%>
+
+                        </tbody>
+
+                    </table>
+                </div>
+        </div>
+        <script>
+            $(document).ready(function () {
+                $("#myInput").on("keyup", function () {
+                    var value = $(this).val().toLowerCase();
+                    $("#myTable tr ").filter(function () {
+                        $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+                    });
+                });
+            });
+        </script>
+        <%- include('./footer_log') %>
+            </body>
+
+</html>

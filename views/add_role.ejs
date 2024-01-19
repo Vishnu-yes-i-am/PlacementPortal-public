@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <%- include("templateCoord") %>
+        <br>
+        <div class="maincontainer">
+            <!--Admin Modal -->
+            <div class="modal fade" id="adminModal" tabindex="-1" aria-labelledby="adminModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="adminModalLabel">Admin</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <ul class="list-group list-group-flush">
+                                <% for(var i=0;i<tpos.length;i++) {%>
+                                    <li class="list-group-item" style="display: flex;justify-content:space-between;">
+                                        <span>
+                                            <%= tpos[i].name %>
+                                        </span><button class="btn"
+                                            onclick="location.href='/admin/delete_person?id=<%=tpos[i]._id%>'">Remove</button>
+                                    </li>
+                                    <% } %>
+
+                            </ul>
+                        </div>
+                        <form class="modal-footer" action="/admin/add_role?role=1" method="POST">
+                            <h4>Add Person</h4>
+                            <div class="input-group mb-3">
+                                <div class="input-group">
+                                    <span class="input-group-text">First and last name</span>
+                                    <input type="text" aria-label="First name" name="fname" class="form-control"
+                                        required>
+                                    <input type="text" aria-label="Last name" name="lname" class="form-control"
+                                        required>
+                                </div>
+                            </div>
+                            <div class="input-group">
+                                <input type="text" class="form-control" name="clgusername"
+                                    placeholder="College username" aria-label="Recipient's username"
+                                    aria-describedby="basic-addon2" required>
+                                <span class="input-group-text" id="basic-addon2">@mnit.ac.in</span>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="inputMob" class="form-label">Mobile</label>
+                                <input type="text" name="mobile" class="form-control" id="inputMob" required>
+                            </div>
+                            <div class="col-md-4">
+                                <label for="inputState" class="form-label">Gender</label>
+                                <select id="inputState" name="gender" class="form-select" required>
+                                    <option selected>Choose...</option>
+                                    <option value="male">Male</option>
+                                    <option value="female">Female</option>
+                                    <!-- <option value="other">Other</option>
+                                    <option value="nottosay" >Prefer not to say</option> -->
+                                </select>
+                            </div>
+                            <div class="col-md-2">
+                                <button type="submit" class="btn btn-secondary">Add</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <!-- FC Modal -->
+            <div class="modal fade" id="fcModal" tabindex="-1" aria-labelledby="fcModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="fcModalLabel">Faculty Coordinator</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <ul class="list-group list-group-flush">
+                                <% for(var i=0;i<fcs.length;i++) {%>
+                                    <li class="list-group-item" style="display: flex;justify-content:space-between;">
+                                        <span>
+                                            <%= fcs[i].name %>
+                                        </span><button class="btn"
+                                            onclick="location.href='/admin/delete_person?id=<%=fcs[i]._id%>'">Remove</button>
+                                    </li>
+                                    <% } %>
+                            </ul>
+                        </div>
+                        <form class="modal-footer" action="/admin/add_role?role=2" method="POST">
+                            <h4>Add Person</h4>
+                            <div class="input-group mb-3">
+                                <div class="input-group">
+                                    <span class="input-group-text">First and last name</span>
+                                    <input type="text" aria-label="First name" name="fname" class="form-control"
+                                        required>
+                                    <input type="text" aria-label="Last name" name="lname" class="form-control"
+                                        required>
+                                </div>
+                            </div>
+                            <div class="input-group">
+                                <input type="text" class="form-control" name="clgusername"
+                                    placeholder="College username" aria-label="Recipient's username"
+                                    aria-describedby="basic-addon2" required>
+                                <span class="input-group-text" id="basic-addon2">@mnit.ac.in</span>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="inputMob" class="form-label">Mobile</label>
+                                <input type="text" name="mobile" class="form-control" id="inputMob" required>
+                            </div>
+                            <div class="col-md-4">
+                                <label for="inputState" class="form-label">Gender</label>
+                                <select id="inputState" name="gender" class="form-select" required>
+                                    <option selected>Choose...</option>
+                                    <option value="male">Male</option>
+                                    <option value="female">Female</option>
+                                    <!-- <option value="other">Other</option>
+                                    <option value="nottosay" >Prefer not to say</option> -->
+                                </select>
+                            </div>
+                            <div class="col-md-2">
+                                <button type="submit" class="btn btn-secondary">Add</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <!-- SC Modal -->
+            <div class="modal fade" id="scModal" tabindex="-1" aria-labelledby="scModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="scModalLabel">Student Coordinator</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <ul class="list-group list-group-flush">
+                                <% for(var i=0;i<scs.length;i++) {%>
+                                    <li class="list-group-item" style="display: flex;justify-content:space-between;">
+                                        <span>
+                                            <%= scs[i].name %>
+                                        </span><button class="btn"
+                                            onclick="location.href='/admin/delete_person?id=<%=scs[i]._id%>'">Remove</button>
+                                    </li>
+                                    <% } %>
+                            </ul>
+                        </div>
+                        <form class="modal-footer" action="/admin/add_role?role=3" method="POST">
+                            <h4>Add Person</h4>
+                            <div class="input-group mb-3">
+                                <div class="input-group">
+                                    <span class="input-group-text">First and last name</span>
+                                    <input type="text" aria-label="First name" name="fname" class="form-control"
+                                        required>
+                                    <input type="text" aria-label="Last name" name="lname" class="form-control"
+                                        required>
+                                </div>
+                            </div>
+                            <div class="input-group">
+                                <input type="text" class="form-control" name="clgusername"
+                                    placeholder="College username" aria-label="Recipient's username"
+                                    aria-describedby="basic-addon2" required>
+                                <span class="input-group-text" id="basic-addon2">@mnit.ac.in</span>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="inputMob" class="form-label">Mobile</label>
+                                <input type="text" name="mobile" class="form-control" id="inputMob" required>
+                            </div>
+                            <div class="col-md-4">
+                                <label for="inputState" class="form-label">Gender</label>
+                                <select id="inputState" name="gender" class="form-select" required>
+                                    <option selected>Choose...</option>
+                                    <option value="male">Male</option>
+                                    <option value="female">Female</option>
+                                    <!-- <option value="other">Other</option>
+                                    <option value="nottosay" >Prefer not to say</option> -->
+                                </select>
+                            </div>
+                            <div class="col-md-2">
+                                <button type="submit" class="btn btn-secondary">Add</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <!-- Staff Modal -->
+            <div class="modal fade" id="staffModal" tabindex="-1" aria-labelledby="staffModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="staffModalLabel">Other Staff</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <ul class="list-group list-group-flush">
+                                <% for(var i=0;i<staff.length;i++) {%>
+                                    <li class="list-group-item" style="display: flex;justify-content:space-between;">
+                                        <span>
+                                            <%= staff[i].name %>
+                                        </span><button class="btn"
+                                            onclick="location.href='/admin/delete_person?id=<%=staff[i]._id%>'">Remove</button>
+                                    </li>
+                                    <% } %>
+
+                            </ul>
+                        </div>
+                        <form class="modal-footer" action="/admin/add_role?role=4" method="POST">
+                            <h4>Add Person</h4>
+                            <div class="input-group mb-3">
+                                <div class="input-group">
+                                    <span class="input-group-text">First and last name</span>
+                                    <input type="text" aria-label="First name" name="fname" class="form-control"
+                                        required>
+                                    <input type="text" aria-label="Last name" name="lname" class="form-control"
+                                        required>
+                                </div>
+                            </div>
+                            <div class="input-group">
+                                <input type="text" class="form-control" name="clgusername"
+                                    placeholder="College username" aria-label="Recipient's username"
+                                    aria-describedby="basic-addon2" required>
+                                <span class="input-group-text" id="basic-addon2">@mnit.ac.in</span>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="inputMob" class="form-label">Mobile</label>
+                                <input type="text" name="mobile" class="form-control" id="inputMob" required>
+                            </div>
+                            <div class="col-md-4">
+                                <label for="inputState" class="form-label">Gender</label>
+                                <select id="inputState" name="gender" class="form-select" required>
+                                    <option selected>Choose...</option>
+                                    <option value="male">Male</option>
+                                    <option value="female">Female</option>
+                                    <!-- <option value="other">Other</option>
+                                    <option value="nottosay" >Prefer not to say</option> -->
+                                </select>
+                            </div>
+                            <div class="col-md-2">
+                                <button type="submit" class="btn btn-secondary">Add</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <style>
+                .card {
+                    margin: 5px;
+                    box-shadow: 0 1rem 3rem rgba(0, 0, 0, .175);
+                }
+            </style>
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-6">
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="card-title">Admin</h5>
+                                <p class="btn btn-secondary" style="background-color:  #062acc; margin-top: 10px;"
+                                    data-bs-toggle="modal" data-bs-target="#adminModal"> View members
+                                    List</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="card-title">Faculty Coordinator</h5>
+                                <p class="btn btn-secondary" style="background-color:  #062acc; margin-top: 10px;"
+                                    data-bs-toggle="modal" data-bs-target="#fcModal"> View members
+                                    List</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <br>
+                <div class="row">
+                    <div class="col-sm-6">
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="card-title">Student Coordinator</h5>
+                                <p class="btn btn-secondary" style="background-color:  #062acc; margin-top: 10px;"
+                                    data-bs-toggle="modal" data-bs-target="#scModal"> View members
+                                    List</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="card-title">Other Staff</h5>
+                                <p class="btn btn-secondary" data-bs-toggle="modal"
+                                    style="background-color:  #062acc; margin-top: 10px;" data-bs-target="#staffModal">
+                                    View
+                                    members
+                                    List</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+        <%- include('./footer_log') %>
+            </body>
+
+</html>

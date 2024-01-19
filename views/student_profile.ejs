@@ -1,0 +1,597 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <title>Profile</title>
+    <style>
+        .card {
+            margin: auto;
+            margin-top: 2em;
+            /* padding: 1.5em 0.5em 0.5em; */
+            padding: 5px;
+            border-radius: 2em;
+            text-align: center;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+            max-width: 1500px;
+        }
+
+        .card .card-img-top {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            margin: 0 auto;
+            background-size: 200px 200px;
+            overflow: hidden;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .card .card-title {
+            font-weight: 700;
+            font-size: 1.5em;
+        }
+
+        .card .btn {
+            border-radius: 2em;
+            background-color: #062acc;
+            color: #ffffff;
+            padding: 0.5em 1.5em;
+        }
+
+        .card .btn:hover {
+            background-color: #062acc;
+            color: #ffffff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        }
+
+        #myKey {
+            background-color: #07295bad;
+            width: 100px;
+            padding: 0;
+        }
+
+        #myValue {
+            border: transparent;
+        }
+    </style>
+    <link rel="stylesheet" href="/assets/css/style.css">
+    <%- include("./templateStud") %>
+        <div class="container">
+            <div class="">
+                <%- include("partials/title",{title:"STUDENT-PROFILE "}) %>
+            <div class=" nav-align-top mb-4">
+                    <ul class="nav nav-tabs nav-fill" role="tablist">
+                        <li class="nav-item">
+                            <button type="button" class="nav-link <% if(tab==1) {%>active<% } %>" role="tab"
+                                data-bs-toggle="tab" data-bs-target="#navs-justified-home"
+                                aria-controls="navs-justified-home" aria-selected="true">
+                                <i class="fa-solid fa-user"></i> Personal Details
+                                <!-- <span class="badge rounded-pill badge-center h-px-20 w-px-20 bg-label-danger">3</span> -->
+                            </button>
+                        </li>
+                        <li class="nav-item">
+                            <button type="button" class="nav-link <% if(tab==2) {%>active<% } %>" role="tab"
+                                data-bs-toggle="tab" data-bs-target="#navs-justified-profile"
+                                aria-controls="navs-justified-profile" aria-selected="false">
+                                <i class="fa-solid fa-graduation-cap"></i> Educational Details
+                            </button>
+                        </li>
+                        <li class="nav-item">
+                            <button type="button" class="nav-link <% if(tab==3) {%>active<% } %>" role="tab"
+                                data-bs-toggle="tab" data-bs-target="#navs-justified-messages"
+                                aria-controls="navs-justified-messages" aria-selected="false">
+                                <i class="fa-solid fa-file-lines"></i> Resume
+                            </button>
+                        </li>
+                    </ul>
+                    <div class="tab-content">
+                        <div class="tab-pane fade <% if(tab==1) {%>show active<% } %>" id="navs-justified-home"
+                            role="tabpanel">
+                            <div class="profilemenu">
+                                <div class="card shadow-lg mb-4 animate__animated animate__slideInLeft"
+                                    style="border-bottom: 10px solid #fbc02a;">
+                                    <div class="row">
+                                        <div class="col-12 col-md-4">
+                                            <div style="background-image:url('./public/images/<%=data.profile_image%>')"
+                                                class="card-img-top"></div>
+                                            <div class="card-body" style="padding:0;padding-top:10px;">
+                                                <h5 class="card-title">
+                                                    <%= data.first_name+" "+data.last_name %>                            </h5>
+                                                <hr>
+                                            </div>
+                                            <div class=" card-header alert alert-primary p-0 p-2"
+                                                        style="font-size: 20px;">Details
+                                            </div>
+                                        </div>
+                                        <div class="col-12 col-md-8">
+                                            <div class="card-body " style="border-bottom: 1px solid #fbc02a;">
+                                                <div class="d-flex justify-content-between align-items-center">
+                                                    <h5 class="card-title" style="font-size: 18px;">Gender</h5>
+                                                </div>
+                                                <p class="card-text ">
+                                                    <%= data.gender %>
+                                                </p>
+                                            </div>
+                                            <div class="card-body " style="border-bottom: 1px solid #fbc02a;">
+                                                <div class="d-flex justify-content-between align-items-center">
+                                                    <h5 class="card-title" style="font-size: 18px;">StudentID</h5>
+                                                </div>
+                                                <p class="card-text ">
+                                                    <%= data.student_id%>
+                                                </p>
+                                            </div>
+                                            <div class="card-body " style="border-bottom: 1px solid #fbc02a;">
+                                                <div class="d-flex justify-content-between align-items-center">
+                                                    <h5 class="card-title" style="font-size: 18px;">Email</h5>
+                                                </div>
+                                                <p class="card-text ">
+                                                    <%= data.sec_email %>
+                                                </p>
+                                            </div>
+                                            <div class="card-body " style="border-bottom: 1px solid #fbc02a;">
+                                                <div class="d-flex justify-content-between align-items-center">
+                                                    <h5 class="card-title" style="font-size: 18px;">Mobile</h5>
+                                                </div>
+                                                <p class="card-text ">
+                                                    <%= data.mobile %>
+                                                </p>
+                                            </div>
+                                            <div class="card-body " style="border-bottom: 1px solid #fbc02a;">
+                                                <div class="d-flex justify-content-between align-items-center">
+                                                    <h5 class="card-title" style="font-size: 18px;">DOB</h5>
+                                                </div>
+                                                <p class="card-text ">
+                                                    <%= data.dob %>
+                                                </p>
+                                            </div>
+                                            <div class="card-body " style="border-bottom: 1px solid #fbc02a;">
+                                                <div class="d-flex justify-content-between align-items-center">
+                                                    <h5 class="card-title" style="font-size: 18px;">Programme</h5>
+                                                </div>
+                                                <p class="card-text ">
+                                                    <%= data.programme %>
+                                                </p>
+                                            </div>
+                                            <div class="card-body " style="border-bottom: 1px solid #fbc02a;">
+                                                <div class="d-flex justify-content-between align-items-center">
+                                                    <h5 class="card-title" style="font-size: 18px;">Branch</h5>
+                                                </div>
+                                                <p class="card-text ">
+                                                    <%= data.branch %>
+                                                </p>
+                                            </div>
+                                            <div class="card-body " style="border-bottom: 1px solid #fbc02a;">
+                                                <div class="d-flex justify-content-between align-items-center">
+                                                    <h5 class="card-title" style="font-size: 18px;">Admission Year</h5>
+                                                </div>
+                                                <p class="card-text ">
+                                                    <%= data.addmission_year%>
+                                                </p>
+                                            </div>
+                                            <div class="card-body " style="border-bottom: 1px solid #fbc02a;">
+                                                <div class="d-flex justify-content-between align-items-center">
+                                                    <h5 class="card-title" style="font-size: 18px;">Backlogs</h5>
+                                                </div>
+                                                <p class="card-text ">
+                                                    <%= data.backlogs %>
+                                                </p>
+                                            </div>
+                                            <div class="card-body " style="border-bottom: 1px solid #fbc02a;">
+                                                <div class="d-flex justify-content-between align-items-center">
+                                                    <h5 class="card-title" style="font-size: 18px;">CGPA</h5>
+                                                </div>
+                                                <p class="card-text ">
+                                                    <%= data.cgpa %>
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tab-pane fade <% if(tab==2) {%>show active<% } %> " id="navs-justified-profile"
+                            role="tabpanel">
+                            <br>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="card mb-4">
+                                        <h5 class="card-header">Matriculation Details</h5>
+                                        <form class="card-body" action="/updateStud/update_acad10" method="POST">
+                                            <div class="mb-3 row">
+                                                <div class="col-md-10">
+                                                    <label for="text-input-02">School Name</label>
+                                                    <input class="form-control" type="text" name="school_name10"
+                                                        value="<%=data.education.s10.school_name %>"
+                                                        id="text-input-02" />
+                                                </div>
+                                            </div>
+                                            <div class="mb-3 row">
+                                                <div class="col-md-10">
+                                                    <label for="text-input-03">Address</label>
+                                                    <input class="form-control" name="school_address10" type="text"
+                                                        value="<%=data.education.s10.address %>" id="text-input-03" />
+                                                </div>
+                                            </div>
+                                            <div class="mb-3 row">
+                                                <div class="col-md-10">
+                                                    <label for="text-input-04">Percentage</label>
+                                                    <input class="form-control" name="school_perc10" type="text"
+                                                        id="text-input-04" value='<%=data.education.s10.percentage%>' />
+                                                </div>
+                                            </div>
+                                            <div class="mb-3 row">
+                                                <div class="col-md-10">
+                                                    <label for="text-input-08">Board</label>
+                                                    <input class="form-control" name="school_board10" type="text"
+                                                        id="text-input-08" value='<%=data.education.s10.board%>' />
+                                                </div>
+                                            </div>
+                                            <div class="mb-3">
+                                                <label for="exampleFormControlSelect1">Select Year</label>
+                                                <select class="form-select" name="acad_year10"
+                                                    id="exampleFormControlSelect1" aria-label="Academmic Year">
+                                                    <option selected disabled value=<%=data.education.s10.passing_year%>
+                                                        >
+                                                        <%=data.education.s10.passing_year%>
+                                                    </option>
+                                                    <option value=2022>2022</option>
+                                                    <option value=2021>2021</option>
+                                                    <option value=2020>2020</option>
+                                                    <option value=2019>2019</option>
+                                                    <option value=2018>2018</option>
+                                                    <option value=2017>2017</option>
+                                                    <option value=2016>2016</option>
+                                                    <option value=2015>2015</option>
+                                                    <option value=2014>2014</option>
+                                                </select>
+                                            </div>
+                                            <button class="btn btn-success" style="border-radius: 10px;">
+                                                <% if(!data.education.s10.saved) {%> Update<% }else{%>Edit <% } %>
+                                            </button>
+                                        </form>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="card mb-4">
+                                        <h5 class="card-header">Intermediate /+2</h5>
+                                        <form class="card-body" action="/updateStud/update_acad12" method="POST">
+                                            <div class="mb-3 row">
+                                                <div class="col-md-10">
+                                                    <label for="text-input-32">School Name</label>
+                                                    <input class="form-control" type="text" name="school_name12"
+                                                        value="<%=data.education.s12.school_name %>"
+                                                        id="text-input-32" />
+                                                </div>
+                                            </div>
+                                            <div class="mb-3 row">
+                                                <div class="col-md-10">
+                                                    <label for="text-input-33">Address</label>
+                                                    <input class="form-control" name="school_address12" type="text"
+                                                        value="<%=data.education.s12.address %>" id="text-input-33" />
+                                                </div>
+                                            </div>
+                                            <div class="mb-3 row">
+                                                <div class="col-md-10">
+                                                    <label for="text-input-34">Percentage</label>
+                                                    <input class="form-control" name="school_perc12" type="text"
+                                                        id="text-input-34" value='<%=data.education.s12.percentage%>' />
+                                                </div>
+                                            </div>
+                                            <div class="mb-3 row">
+                                                <div class="col-md-10">
+                                                    <label for="text-input-38">Board</label>
+                                                    <input class="form-control" name="school_board12" type="text"
+                                                        id="text-input-38" value='<%=data.education.s12.board%>' />
+                                                </div>
+                                            </div>
+                                            <div class="mb-3">
+                                                <label for="exampleFormControlSelect2">Select Year</label>
+                                                <select class="form-select" name="acad_year12"
+                                                    id="exampleFormControlSelect2" aria-label="Academmic Year">
+                                                    <option selected disabled value=<%=data.education.s12.passing_year%>
+                                                        >
+                                                        <%=data.education.s12.passing_year%>
+                                                    </option>
+                                                    <option value=2022>2022</option>
+                                                    <option value=2021>2021</option>
+                                                    <option value=2020>2020</option>
+                                                    <option value=2019>2019</option>
+                                                    <option value=2018>2018</option>
+                                                    <option value=2017>2017</option>
+                                                    <option value=2016>2016</option>
+                                                    <option value=2015>2015</option>
+                                                    <option value=2014>2014</option>
+                                                </select>
+                                            </div>
+                                            <button class="btn btn-success" style="border-radius: 10px;">
+                                                <% if(!data.education.s12.saved) {%> Update<% }else{%>Edit <% } %>
+                                            </button>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tab-pane fade <% if(tab==3) {%>show active<% } %>" id="navs-justified-messages"
+                            role="tabpanel">
+                            <br>
+
+                            <h3 class="pb-1 mb-4 text">Socials</h3>
+                            <div style="width:calc(100% - 40px);padding:20px;">
+                                <form class="card-body" action="/updateStud/updateLink" method="post">
+                                    <div class="mb-3 row">
+                                        <label for="html5-text-input" class="col-md-2 col-form-label">Github</label>
+                                        <div class="col-md-10">
+                                            <input class="form-control" maxlength="100" name="glink" type="text"
+                                                value="<%=data.github%>" id="html5-text-input" />
+                                        </div>
+                                    </div>
+                                    <div class="mb-3 row">
+                                        <label for="html5-search-input" class="col-md-2 col-form-label">LinkedIn</label>
+                                        <div class="col-md-10">
+                                            <input class="form-control" maxlength="100" name="llink" type="text"
+                                                value='<%=data.linkedIn%>' id="html5-search-input" />
+                                        </div>
+                                    </div>
+                                    <div style="width: 100%;display: flex;">
+
+                                        <button class="btn-success btn"
+                                            style="width: fit-content; margin:auto;background-color: #062acc;; ">Save</button>
+                                    </div>
+                                </form>
+                                <hr>
+                                <h3 class="pb-1 mb-4 text">Skills</h3>
+                                <div class="rows" style="display: flex;flex-direction:row; width:100%;flex-wrap:wrap; ">
+
+                                    <div class="mb-3" style="margin:auto; margin-top:10px;">
+                                        <form action="/updateStud/add_skill?type=languages" method="POST">
+                                            <label for="exampleDataList" class="form-label">Languages</label>
+                                            <input class="form-control" name="skill" list="datalistOptions"
+                                                id="exampleDataList" placeholder="Type to search..." maxlength="20"
+                                                required>
+                                            <div style="display:flex;width:100%">
+
+                                                <button class="btn btn-success"
+                                                    style="width: fit-content; margin:auto;border-radius: 5px;">Add</button>
+                                            </div>
+                                        </form>
+                                        <br>
+                                        <datalist id="datalistOptions">
+                                        </datalist>
+                                        <ul style="list-style-type:decimal">
+                                            <% for(var i=0;i<data.skills.languages.length;i++){ %>
+                                                <li style="display: flex;justify-content:space-between;">
+                                                    <%=data.skills.languages[i]%><i class="fa-solid fa-xmark"
+                                                            style="cursor: pointer;"
+                                                            onclick="location.href='/updateStud/remove_skill?type=languages&skill='+'<%=encodeURIComponent(data.skills.languages[i])%>'"></i>
+                                                </li>
+                                                <% } %>
+                                        </ul>
+                                    </div>
+
+
+                                    <div class="mb-3" style="margin:auto; margin-top:10px;">
+                                        <form action="/updateStud/add_skill?type=technologies" method="POST">
+                                            <label for="exampleDataList" class="form-label">Technologies</label>
+                                            <input class="form-control" name="skill" list="datalistOptions"
+                                                id="exampleDataList" placeholder="Type to search..." maxlength="20"
+                                                required />
+                                            <div style="display:flex;width:100%">
+
+                                                <button class="btn btn-success"
+                                                    style="width: fit-content; margin:auto;border-radius: 5px;">Add</button>
+                                            </div>
+                                        </form>
+                                        <br>
+                                        <datalist id="datalistOptions">
+                                        </datalist>
+                                        <ul style="list-style-type:decimal">
+                                            <% for(var i=0;i<data.skills.technologies.length;i++){ %>
+                                                <li style="display: flex;justify-content:space-between;">
+                                                    <%=data.skills.technologies[i]%><i class="fa-solid fa-xmark"
+                                                            style="cursor: pointer;"
+                                                            onclick="location.href='/updateStud/remove_skill?type=technologies&skill=<%=data.skills.technologies[i]%>'"></i>
+                                                </li>
+                                                <% } %>
+                                        </ul>
+                                    </div>
+
+                                    <div class="mb-3" style="margin:auto; margin-top:10px;">
+                                        <form action="/updateStud/add_skill?type=database" method="POST">
+                                            <label for="exampleDataList" class="form-label">Databases </label>
+                                            <input class="form-control" name="skill" list="datalistOptions"
+                                                id="exampleDataList" placeholder="Type to search..." maxlength="20"
+                                                required />
+                                            <div style="display:flex;width:100%">
+
+                                                <button class="btn btn-success"
+                                                    style="width: fit-content; margin:auto;border-radius: 5px;">Add</button>
+                                            </div>
+                                        </form>
+                                        <br>
+                                        <datalist id=" datalistOptions">
+                                        </datalist>
+                                        <ul style="list-style-type:decimal">
+                                            <% for(var i=0;i<data.skills.database.length;i++){ %>
+                                                <li style="display: flex;justify-content:space-between;">
+                                                    <%=data.skills.database[i]%><i class="fa-solid fa-xmark"
+                                                            style="cursor: pointer;"
+                                                            onclick="location.href='/updateStud/remove_skill?type=database&skill=<%=data.skills.database[i]%>'"></i>
+                                                </li>
+                                                <% } %>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <hr>
+                                <h3 class="pb-1 mb-4 text">Projects</h3>
+
+                                <div class="row mb-5">
+                                    <% for(var i=0;i<data.projects.length;i++){%>
+                                        <div class="col-12 col-md-4">
+                                            <div class="card mb-3">
+                                                <div class="row g-0">
+                                                    <div class="col-md-12">
+                                                        <div class="card-body">
+                                                            <i class="fa-solid fa-xmark"
+                                                                style="position: absolute;right:10px;cursor: pointer;"
+                                                                onclick="location.href='/updateStud/remove_project?id=<%=data.projects[i]._id%>'"></i>
+                                                            <h5 class="card-title">
+                                                                <%= data.projects[i].title %>
+                                                            </h5>
+                                                            <p class="card-text">
+                                                                <%= data.projects[i].desc %>
+                                                            </p>
+                                                            <h5>
+                                                                <%= data.projects[i].techUsed %>
+                                                            </h5>
+                                                            <a href="<%= data.projects[i].link %>" target="_blank"
+                                                                class=" card-text"><small class="text-muted">
+                                                                    <%= data.projects[i].link %>
+                                                                </small></a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <% } %>
+                                </div>
+
+                                <% if(data.projects.length<4){%>
+                                    <div class="col-12">
+                                        <div class="card">
+                                            <h5 class="card-header">Add Project</h5>
+                                            <form style="margin-top:5px;"
+                                                class="card-body demo-vertical-spacing demo-only-element"
+                                                action="/updateStud/add_project" method="post">
+                                                <div class="input-group">
+                                                    <label class="input-group-text" for="inputGroupFile01">Title</label>
+                                                    <input type="text" name="title" class="form-control"
+                                                        id="inputGroupFile01" required />
+                                                </div>
+
+                                                <div class="input-group">
+                                                    <label class="input-group-text" for="inputGroupFile02">Link</label>
+                                                    <input type="text" name="link" class="form-control"
+                                                        id="inputGroupFile02" required />
+                                                </div>
+                                                <div class="input-group">
+                                                    <label class="input-group-text"
+                                                        for="inputGroupFile03">Description</label>
+                                                    <textarea name="desc" id="inputGroupFile03" class="form-control"
+                                                        placeholder="must be less than 20 words" cols="100" rows="3"
+                                                        required></textarea>
+                                                </div>
+                                                <div class="input-group">
+                                                    <label class="input-group-text" for="inputGroupFile04">Used
+                                                        Tech
+                                                        Stack</label>
+                                                    <input type="text" name="techUsed" class="form-control"
+                                                        id="inputGroupFile04" placeholder="seperated by comma (,)"
+                                                        required />
+                                                </div>
+                                                <div style="display:flex;width:100%">
+
+                                                    <button class="btn"
+                                                        style="width: fit-content; margin:auto;border-radius: 5px;background-color: #062acc;">Add</button>
+                                                </div>
+                                            </form>
+                                        </div>
+
+                                    </div>
+                                    <% } %>
+                                        <hr>
+                                        <h3 class="pb-1 mb-4 text">Experiences</h3>
+                                        <div class="row mb-5">
+                                            <% for(var i=0;i<data.experiences.length;i++){%>
+                                                <div class="col-12 col-md-4">
+                                                    <div class="card mb-3">
+                                                        <div class="row g-0">
+                                                            <div class="col-md-12">
+                                                                <div class="card-body">
+                                                                    <i class="fa-solid fa-xmark"
+                                                                        style="position: absolute;right:10px;cursor: pointer;"
+                                                                        onclick="location.href='/updateStud/remove_experience?id=<%=data.experiences[i]._id%>'"></i>
+                                                                    <h5 class="card-title">
+                                                                        <%= data.experiences[i].role %>
+                                                                    </h5>
+                                                                    <p class="card-text">
+                                                                        <%= data.experiences[i].desc %>
+                                                                    </p><span>
+                                                                        organisation :
+                                                                        <h5 style="display:inline-block">
+                                                                            <%= data.experiences[i].organisation %>
+                                                                        </h5>
+                                                                    </span>
+                                                                    <div class="card-text"><small class="text-muted">
+                                                                            <%= data.experiences[i].startDate %>
+                                                                        </small></div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <% } %>
+                                        </div>
+                                        <div class="col-12">
+                                            <div class="card">
+                                                <h5 class="card-header">Add Experience</h5>
+                                                <form style="margin-top:5px;"
+                                                    class="card-body demo-vertical-spacing demo-only-element"
+                                                    action="/updateStud/add_experience" method="post">
+                                                    <div class="input-group">
+                                                        <label class="input-group-text"
+                                                            for="inputGroupFile061">Role</label>
+                                                        <input type="text" id="inputGroupFile061" name="role"
+                                                            class="form-control" id="inputGroupFile01" required />
+                                                    </div>
+
+                                                    <div class="input-group">
+                                                        <label class="input-group-text"
+                                                            for="inputGroupFile052">Start-Date</label>
+                                                        <input type="date" id="inputGroupFile052" name="startDate"
+                                                            class="form-control" required />
+                                                    </div>
+                                                    <div class="input-group">
+                                                        <label class="input-group-text"
+                                                            for="inputGroupFile032">Duration</label>
+                                                        <input type="number" id="inputGroupFile032" name="duration"
+                                                            class="form-control" placeholder="in months" required />
+                                                    </div>
+                                                    <div class="input-group">
+                                                        <label class="input-group-text"
+                                                            for="inputGroupFile024">Description</label>
+                                                        <textarea name="desc" id="inputGroupFile024"
+                                                            placeholder="must be less than 100 words" cols="100"
+                                                            rows="3" required></textarea>
+                                                    </div>
+                                                    <div class="input-group">
+                                                        <label class="input-group-text"
+                                                            for="inputGroupFile014">Organisation</label>
+                                                        <input type="text" name="org" class="form-control"
+                                                            id="inputGroupFile014"
+                                                            placeholder="Organisation you worked for" required />
+                                                    </div>
+                                                    <div style="display:flex;width:100%">
+
+                                                        <button class="btn btn-success"
+                                                            style="width: fit-content; margin:auto;border-radius: 5px;">Add</button>
+                                                    </div>
+                                                </form>
+                                            </div>
+
+                                        </div>
+                                        <div style="display:flex;width:100%">
+                                            <a class="btn btn-success"
+                                                style="width:fit-content; margin:auto; margin-top: 30px; background-color: #062acc; padding: 10px 20px;"
+                                                href='/resume/view_myResume' target="_blank">View
+                                                resume</a>
+                                        </div>
+                            </div>
+                        </div>
+                    </div>
+            </div>
+        </div>
+        </div>
+        <%- include('./footer_log') %>
